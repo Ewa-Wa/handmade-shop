@@ -1,0 +1,21 @@
+.flex-container{
+    /* border: solid crimson; */
+    display: flex;
+    justify-content:left;
+    
+}
+
+.flex-container > div {
+    margin:0 1em;
+}
+
+#itemList{
+    /* border: solid rgb(43, 220, 20); */
+    margin: 0px;
+    padding-right: 2em;
+    background-image:  linear-gradient(to bottom right, black, blueviolet, white);
+}
+
+#details {
+    /* border: solid rgb(43, 220, 20); */
+}

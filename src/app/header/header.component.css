@@ -1,0 +1,92 @@
+
+.header{
+    /* border: dashed; */
+    background-color: black;
+    padding: 2em 0;
+}
+
+.flex-container{
+    /* border: solid  green; */
+    width: 95%;
+    max-width: 1600px;
+    padding: 0;
+    margin:0  auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.homeTitle{
+    /* border: solid blueviolet; */
+    text-align: center;
+    margin: 1em;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h1{
+    color:white;
+    margin: 0px;
+}
+p.subtitle{
+    color:blueviolet;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin: 0px;
+}
+
+nav ul{
+    /* border: solid red; */
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    justify-content:center; 
+    list-style:none;
+    margin: 1.5em;
+    
+    
+}
+
+nav li {
+    /* border: solid rgb(250, 106, 207); */
+    margin-left: 2em ;
+    text-align: center;
+}
+
+nav a{
+    /* border: solid yellow; */
+    text-decoration: none;
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    padding: 0.25em 0;
+}
+
+nav a:hover {
+    background-color: blueviolet;
+  }
+
+.router-link-active{
+    background-color: blueviolet;
+}
+
+@media (max-width: 800px){
+    nav ul{
+        display: flex;
+        flex-direction: column;
+    }
+    nav li {
+        margin: 0;
+        text-align: center;
+    }
+    
+}
+
+@media (max-width: 1000px){
+    .flex-container{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+

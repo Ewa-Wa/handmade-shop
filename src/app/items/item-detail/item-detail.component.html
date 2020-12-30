@@ -1,0 +1,41 @@
+<h2 >{{item.name | uppercase}}</h2>
+<hr>
+<app-added-to-basket  
+*ngIf="isItemAddedToBasket" 
+(close)="onHandleAddedToBasket()" 
+></app-added-to-basket>
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-group">
+        <label for="type">Type</label>
+        <input id="type" type="text" class="form-control" name="type" [(ngModel)]="item.type">
+    </div>
+    <div class="form-group" >
+        <!-- <mat-form-field appearance="fill">
+            <mat-label>Size</mat-label>
+            <mat-select [(ngModel)]="item.size" name="size" >
+                <mat-option *ngFor="let size of sizes" [value]="size">{{size}}</mat-option>
+            </mat-select>
+        </mat-form-field> -->
+
+        <label for="size">Size</label>
+        <input id="size" type="text" class="form-control" name="size" [(ngModel)]="item.size">
+
+        <!-- <button class="button" (click)="onLoadSizeComponent()">size info</button>
+        <app-item-size *ngIf="isItemSizeComponent"></app-item-size> --> 
+    </div>
+
+    <div class="form-group">
+        <label for="color">Color</label>
+        <input id="color" type="text" class="form-control" name="color" [(ngModel)]="item.color">
+    </div>
+    <div id="itemSummary">
+        <p *ngIf="item.size || item.type || item.color">Summary of your item:</p>
+        <p *ngIf="item.type">Type: {{item.type}}</p>
+        <p *ngIf="item.size">Size: {{item.size}}</p>
+        <p *ngIf="item.color">Color: {{item.color}}</p>
+    </div>
+    <button type="button" class="btn" (click)="onCancel()">Cancel</button>
+    <button type="submit" class="btn" (click)="onAddItemToBasket()">Add to basket</button>
+    
+</form>
+

@@ -1,0 +1,18 @@
+#itemSummary {
+    background-color: black;
+    color: blueviolet;
+}
+
+h2 {
+    color: black;
+}
+
+.btn{
+    margin-right: 0.5em;
+    background-color: blueviolet;
+    color: white;
+}
+
+input{
+    max-width: 300px;
+}
