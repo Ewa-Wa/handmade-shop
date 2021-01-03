@@ -18,6 +18,8 @@ import { ItemSizeComponent } from './items/item-detail/item-size/item-size.compo
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {MatSelectModule} from '@angular/material/select';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ItemTypeComponent } from './items/item-detail/item-type/item-type.component';
+import { ItemColorComponent } from './items/item-detail/item-color/item-color.component';
 
 
 
@@ -33,6 +35,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     AddedToBasketComponent,
     ItemSizeComponent,
+    ItemTypeComponent,
+    ItemColorComponent,
 
   ],
   imports: [

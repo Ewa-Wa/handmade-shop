@@ -15,9 +15,11 @@ export class ItemDetailComponent implements OnInit {
   id: number;
   item: Item;
   isItemAddedToBasket = false;
-  isItemSizeComponent = false;
   selectedSize: string;
-  // sizes= ['xs', 's'];
+  typeList= ['triangle', 'circle'];
+  sizeList= ['xs', 's'];
+  colorList= ['brown', 'red', 'blue', 'grey'];
+
 
 
   constructor(private route: ActivatedRoute, private router: Router, private itemService: ItemService) { }
@@ -50,7 +52,4 @@ export class ItemDetailComponent implements OnInit {
     this.isItemAddedToBasket = false;
   }
 
-  onLoadSizeComponent(){
-    this.isItemSizeComponent = true;
-  }
 }

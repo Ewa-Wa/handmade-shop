@@ -14,9 +14,6 @@ export class ItemComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  // onSelectItem(index: number){
-  //   return this.items[index];
-  // }
 
 
 }
