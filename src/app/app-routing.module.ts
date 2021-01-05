@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { AdminComponent } from "./admin/admin.component";
 import { BasketComponent } from "./basket/basket.component";
 import { HomeComponent } from "./home/home.component";
 import { ItemColorComponent } from "./items/item-detail/item-color/item-color.component";
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
             ]}
         ]
     },
+    {path: 'admin', component: AdminComponent},
     {path: 'basket', component: BasketComponent}
 ];
 

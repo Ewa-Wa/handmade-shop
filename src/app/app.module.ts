@@ -20,6 +20,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ItemTypeComponent } from './items/item-detail/item-type/item-type.component';
 import { ItemColorComponent } from './items/item-detail/item-color/item-color.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 
@@ -37,6 +38,7 @@ import { ItemColorComponent } from './items/item-detail/item-color/item-color.co
     ItemSizeComponent,
     ItemTypeComponent,
     ItemColorComponent,
+    AdminComponent,
 
   ],
   imports: [
