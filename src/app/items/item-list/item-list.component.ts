@@ -1,20 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import { Item } from '../item/item.model';
-import { ItemService } from '../item/item.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
+import { ItemClient } from '../item/itemClient.model';
+import { ItemClientService } from '../item/itemClient.service';
 
 @Component({
   selector: 'app-item-list',
   templateUrl: './item-list.component.html',
-  styleUrls: ['./item-list.component.css'],
-  providers: [ItemService]
+  styleUrls: ['./item-list.component.css']
 })
-export class ItemListComponent implements OnInit {
-  items: Item[];
-  selectedItem: Item;
+export class ItemListComponent implements OnInit, OnDestroy {
+  items: ItemClient[];
+  private subscription: Subscription;
 
-  constructor(private itemService: ItemService) { }
+  constructor(private itemClientService: ItemClientService, private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
-    this.items = this.itemService.getItems();
+    this.dataStorageService.fetchItems();
+    this.subscription = this.itemClientService.itemsChanged.subscribe(
+      (items: ItemClient[]) => {
+        this.items = items;
+      }
+    );
+    this.items = this.itemClientService.getItems();
   }
+
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
+   }
 }

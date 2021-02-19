@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Item } from '../items/item/item.model';
-import { ItemService } from '../items/item/item.service';
+import { ItemClient } from '../items/item/itemClient.model';
+import { ItemClientService } from '../items/item/itemClient.service';
 import { BasketService } from './basket.service';
 
 @Component({
@@ -10,16 +10,16 @@ import { BasketService } from './basket.service';
   styleUrls: ['./basket.component.css']
 })
 export class BasketComponent implements OnInit {
-  item: Item;
-  items: Item[];
+  item: ItemClient;
+  items: ItemClient[];
   private subscription: Subscription;
 
-  constructor(private itemService: ItemService, private basketService: BasketService) { }
+  constructor(private itemClientService: ItemClientService, private basketService: BasketService) { }
 
   ngOnInit(): void {
     this.items = this.basketService.getItems();
     this.subscription = this.basketService.itemsChanged.subscribe(
-      (items: Item[]) => {
+      (items: ItemClient[]) => {
         this.items = items;
       }
     );

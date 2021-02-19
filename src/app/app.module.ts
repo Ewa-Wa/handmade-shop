@@ -11,16 +11,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
 import { BasketService } from './basket/basket.service';
-import { ItemService } from './items/item/item.service';
+import { ItemClientService } from './items/item/itemClient.service';
 import { HomeComponent } from './home/home.component';
 import { AddedToBasketComponent } from './shared/messages/added-to-basket/added-to-basket.component';
 import { ItemSizeComponent } from './items/item-detail/item-size/item-size.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ItemTypeComponent } from './items/item-detail/item-type/item-type.component';
 import { ItemColorComponent } from './items/item-detail/item-color/item-color.component';
 import { AdminComponent } from './admin/admin.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ItemAdminService } from './admin/itemAdmin.service';
 
 
 
@@ -46,9 +48,10 @@ import { AdminComponent } from './admin/admin.component';
     AppRoutingModule,
     FormsModule,
     MatSelectModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    HttpClientModule
   ],
-  providers: [BasketService, ItemService],
+  providers: [BasketService, ItemClientService, ItemAdminService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -1,46 +1,55 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+
+import { Component,  OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Item } from '../item/item.model';
-import { ItemService } from '../item/item.service';
+import { ItemClient } from '../item/itemClient.model';
+import { ItemClientService } from '../item/itemClient.service';
 
 @Component({
   selector: 'app-item-detail',
   templateUrl: './item-detail.component.html',
-  styleUrls: ['./item-detail.component.css'],
-  providers: [ItemService]
+  styleUrls: ['./item-detail.component.css']
+  // providers: [ItemService]
 })
 export class ItemDetailComponent implements OnInit {
 
   id: number;
-  item: Item;
+  item: ItemClient;
   isItemAddedToBasket = false;
   selectedSize: string;
-  typeList= ['triangle', 'circle'];
-  sizeList= ['xs', 's'];
-  colorList= ['brown', 'red', 'blue', 'grey'];
+  typeList = [];
+  sizeList= [];
+  colorList= [];
 
 
 
-  constructor(private route: ActivatedRoute, private router: Router, private itemService: ItemService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private itemClientService: ItemClientService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(
       (params: Params) => {
         this.id = +params['id'];
-        this.item = this.itemService.getItem(this.id);
+        this.item = this.itemClientService.getItem(this.id);
+        this.setItemLists(this.item);
       }
     );
   }
 
+  setItemLists(item: ItemClient){
+    this.typeList.push(item.typeList);
+    this.sizeList.push(item.sizeList);
+    this.colorList.push(item.colorList);
+    
+  }
+
   onSubmit(form: NgForm){
-    this.item.setSize(form.value.size);
-    this.item.setType(form.value.type);
-    this.item.setColor(form.value.color);
+    // this.item.setSize(form.value.size);
+    // this.item.setType(form.value.type);
+    // this.item.setColor(form.value.color);
   }
 
   onAddItemToBasket(){
-    this.itemService.addItemToBasket(this.item);
+    this.itemClientService.addItemToBasket(this.item);
     this.isItemAddedToBasket = true;
   }
 

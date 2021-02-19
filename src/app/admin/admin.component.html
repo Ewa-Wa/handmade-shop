@@ -1,1 +1,38 @@
-<p>admin works!</p>
+<div class="flex-container">
+    <form (ngSubmit)="onCreateItem(f)" #f="ngForm">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input class="form-control" ngModel name="name" id="name">
+        </div>
+
+        <div class="form-group" >
+            <label for="typeList">Add available types:</label>
+            <input class="form-control" ngModel name="typeList" id="typeList">
+            <button class="addBtn" type="button" >Add</button>
+        </div>
+        
+        <div class="form-group">
+            <label for="sizeList">Add available sizes:</label>
+            <input class="form-control" ngModel name="sizeList" id="sizeList">
+        </div>
+        <div class="form-group">
+            <label for="colorList">Add available colors:</label>
+            <input class="form-control" ngModel name="colorList" id="colorList">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <ul>
+        <button (click)="onSaveItems()">Save Items</button>
+        <li *ngFor="let item of items, let i = index">
+            <div>
+                <p>Name: {{item.name}}</p>
+                <p>Available types: {{item.typeList}}</p>
+                <p>Available sizes: {{item.sizeList}}</p>
+                <p>Available colors: {{item.colorList}}</p>
+            </div>
+            <button (click)="onDeleteItem(i)" >Delete</button>
+        </li>
+            
+    </ul>
+</div>
