@@ -1,8 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Item } from '../items/item/item.interface';
 
 import { DataStorageService } from '../shared/data-storage.service';
 import { ItemAdmin } from './itemAdmin.model';
@@ -15,10 +14,24 @@ import { ItemAdminService } from './itemAdmin.service';
 })
 export class AdminComponent implements OnInit, OnDestroy  {
 
-  items: Item[];
+  items: ItemAdmin[];
   private subscription: Subscription;
+  newItemAdminForm: FormGroup;
 
-  constructor(private route: ActivatedRoute, private router: Router, private itemAdminService: ItemAdminService,  private dataStorageService: DataStorageService) { }
+  constructor(
+    private route: ActivatedRoute, 
+    private router: Router, 
+    private itemAdminService: ItemAdminService,  
+    private dataStorageService: DataStorageService)
+     {
+      this.newItemAdminForm = new FormGroup({
+        'name': new FormControl(null, Validators.required),
+        'typeList': new FormControl(null, Validators.required),
+        'sizeList': new FormControl(null, Validators.required),
+        'colorList': new FormControl(null, Validators.required),
+  
+      });
+      }
   
 
   ngOnInit(): void {
@@ -30,11 +43,11 @@ export class AdminComponent implements OnInit, OnDestroy  {
       }
     );
     this.items = this.itemAdminService.getItems();
+
   }
 
-  onCreateItem(form: NgForm){
-
-    const value = form.value;
+  onCreateItem(){
+    const value = this.newItemAdminForm.value;
     const newItem = new ItemAdmin(value.name, value.typeList, value.sizeList, value.colorList);
     this.itemAdminService.createItem(newItem);
 

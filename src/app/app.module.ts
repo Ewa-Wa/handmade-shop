@@ -9,7 +9,7 @@ import { ItemListComponent } from './items/item-list/item-list.component';
 import { ItemComponent } from './items/item/item.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BasketService } from './basket/basket.service';
 import { ItemClientService } from './items/item/itemClient.service';
 import { HomeComponent } from './home/home.component';
@@ -47,6 +47,7 @@ import { ItemAdminService } from './admin/itemAdmin.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     MatSelectModule,
     NoopAnimationsModule,
     HttpClientModule

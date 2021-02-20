@@ -1,23 +1,23 @@
 <div class="flex-container">
-    <form (ngSubmit)="onCreateItem(f)" #f="ngForm">
+    <form [formGroup]="newItemAdminForm" (ngSubmit)="onCreateItem()">
         <div class="form-group">
             <label for="name">Name</label>
-            <input class="form-control" ngModel name="name" id="name">
+            <input class="form-control" formControlName="name" id="name">
         </div>
 
         <div class="form-group" >
             <label for="typeList">Add available types:</label>
-            <input class="form-control" ngModel name="typeList" id="typeList">
+            <input class="form-control" formControlName="typeList" id="typeList">
             <button class="addBtn" type="button" >Add</button>
         </div>
-        
+
         <div class="form-group">
             <label for="sizeList">Add available sizes:</label>
-            <input class="form-control" ngModel name="sizeList" id="sizeList">
+            <input class="form-control" formControlName="sizeList" id="sizeList">
         </div>
         <div class="form-group">
             <label for="colorList">Add available colors:</label>
-            <input class="form-control" ngModel name="colorList" id="colorList">
+            <input class="form-control" formControlName="colorList" id="colorList">
         </div>
         <button type="submit">Submit</button>
     </form>
