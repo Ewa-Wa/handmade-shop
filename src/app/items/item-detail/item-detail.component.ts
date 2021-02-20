@@ -16,7 +16,6 @@ export class ItemDetailComponent implements OnInit {
   id: number;
   item: ItemClient;
   isItemAddedToBasket = false;
-  selectedSize: string;
   typeList = [];
   sizeList= [];
   colorList= [];
@@ -36,9 +35,10 @@ export class ItemDetailComponent implements OnInit {
   }
 
   setItemLists(item: ItemClient){
-    this.typeList.push(item.typeList);
-    this.sizeList.push(item.sizeList);
-    this.colorList.push(item.colorList);
+    console.log(item);
+    this.typeList = item.typeList;
+    this.sizeList = item.sizeList;
+    this.colorList = item.colorList;
     
   }
 

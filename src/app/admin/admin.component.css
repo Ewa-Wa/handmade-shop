@@ -26,6 +26,7 @@ ul {
 li{
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     margin: 5px;
     background-color: rgba(0, 253, 42, 0.548);
     border-radius: 20px;
@@ -37,7 +38,7 @@ li p {
 }
 
 li button{
-    height: 30px;
+    
 }
 
 .addBtn{

@@ -5,19 +5,34 @@
             <input class="form-control" formControlName="name" id="name">
         </div>
 
-        <div class="form-group" >
+        <div  formArrayName="typeList">
             <label for="typeList">Add available types:</label>
-            <input class="form-control" formControlName="typeList" id="typeList">
-            <button class="addBtn" type="button" >Add</button>
+            <button class="addBtn" type="button" (click)="onAddItemType()">Add</button>
+            <div 
+            class="form-group" 
+            *ngFor="let typeControl of newItemAdminForm.get('typeList').value; let j = index">
+                <input class="form-control" [formControlName]="j" id="typeList">
+            </div>
         </div>
 
-        <div class="form-group">
+        <div  formArrayName="sizeList">
             <label for="sizeList">Add available sizes:</label>
-            <input class="form-control" formControlName="sizeList" id="sizeList">
+            <button class="addBtn" type="button" (click)="onAddItemSize()">Add</button>
+            <div 
+            class="form-group" 
+            *ngFor="let sizeControl of newItemAdminForm.get('sizeList').value; let k = index">
+                <input class="form-control" [formControlName]="k" id="sizeList">
+            </div>
         </div>
-        <div class="form-group">
+
+        <div  formArrayName="colorList">
             <label for="colorList">Add available colors:</label>
-            <input class="form-control" formControlName="colorList" id="colorList">
+            <button class="addBtn" type="button" (click)="onAddItemColor()">Add</button>
+            <div 
+            class="form-group" 
+            *ngFor="let colorControl of newItemAdminForm.get('colorList').value; let l = index">
+                <input class="form-control" [formControlName]="l" id="colorList">
+            </div>
         </div>
         <button type="submit">Submit</button>
     </form>

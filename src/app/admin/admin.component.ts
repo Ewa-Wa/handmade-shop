@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -24,13 +24,7 @@ export class AdminComponent implements OnInit, OnDestroy  {
     private itemAdminService: ItemAdminService,  
     private dataStorageService: DataStorageService)
      {
-      this.newItemAdminForm = new FormGroup({
-        'name': new FormControl(null, Validators.required),
-        'typeList': new FormControl(null, Validators.required),
-        'sizeList': new FormControl(null, Validators.required),
-        'colorList': new FormControl(null, Validators.required),
-  
-      });
+
       }
   
 
@@ -44,6 +38,29 @@ export class AdminComponent implements OnInit, OnDestroy  {
     );
     this.items = this.itemAdminService.getItems();
 
+    this.newItemAdminForm = new FormGroup({
+      'name': new FormControl(null, Validators.required),
+      'typeList': new FormArray([]),
+      'sizeList': new FormArray([]),
+      'colorList': new FormArray([]),
+
+    });
+
+  }
+
+  onAddItemType(){
+    const control = new FormControl(null, Validators.required);
+    (<FormArray>this.newItemAdminForm.get('typeList')).push(control);
+  }
+
+  onAddItemSize(){
+    const control = new FormControl(null, Validators.required);
+    (<FormArray>this.newItemAdminForm.get('sizeList')).push(control);
+  }
+
+  onAddItemColor(){
+    const control = new FormControl(null, Validators.required);
+    (<FormArray>this.newItemAdminForm.get('colorList')).push(control);
   }
 
   onCreateItem(){
