@@ -1,5 +1,6 @@
 div.container {
-    /* border: solid white; */
+    /* background-color: #d5c7bc; */
+    
 }
 
 div.col {
@@ -16,14 +17,15 @@ div.row {
 }
 
 h2 {
-    color: black;
+    color: #785964;
 }
 
 .btn{
     margin-right: 0.5em;
-    background-color: blueviolet;
-    color: white;
+    background-color: #93B7BE;
+    color: #454545;
 }
+
 
 input{
     max-width: 300px;
@@ -35,16 +37,16 @@ mat-form-field {
 }
 
 mat-label{
-    color: blueviolet;
+    color: #785964;
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 400;
 }
 
 mat-hint a {
     text-decoration: none;
     cursor: pointer;
     font-size: 1.5rem;
-    color: white;
+    color: #93B7BE;
 }
 
 mat-hint i {

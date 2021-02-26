@@ -1,8 +1,10 @@
 
 .header{
     /* border: dashed; */
-    background-color: black;
+    background-color:#454545;
     padding: 0;
+    margin: 10px;
+    
 }
 
 .flex-container{
@@ -25,11 +27,11 @@
 }
 
 h1{
-    color:white;
+    color:#d5c7bc;
     margin: 0px;
 }
 p.subtitle{
-    color:blueviolet;
+    color:#af8091;
     font-weight: 700;
     letter-spacing: 3px;
     margin: 0px;
@@ -49,25 +51,28 @@ nav ul{
 
 nav li {
     /* border: solid rgb(250, 106, 207); */
-    margin-left: 2em ;
+    margin-left: 1em ;
     text-align: center;
 }
 
 nav a{
     /* border: solid yellow; */
     text-decoration: none;
-    color: white;
+    color: #f1fffa;
     font-size: 3rem;
     font-weight: bold;
-    padding: 0.25em 0;
+    padding: 0.25em 0.25em;
+    border-radius: 5px;
 }
 
 nav a:hover {
-    background-color: blueviolet;
+    background-color: #93B7BE;
+    color: #454545;
   }
 
 .router-link-active{
-    background-color: blueviolet;
+    background-color: #93B7BE;
+   
 }
 
 @media (max-width: 800px){

@@ -5,7 +5,7 @@
             <div class="row">
                 <mat-form-field appearance="fill">
                     <mat-label>Type</mat-label>
-                    <mat-select [(ngModel)]="item.type" name="type" >
+                    <mat-select [(ngModel)]="item.type" name="type">
                         <mat-option *ngFor="let type of typeList" [value]="type">{{type}}</mat-option>
                     </mat-select>
                     <mat-hint align="end">

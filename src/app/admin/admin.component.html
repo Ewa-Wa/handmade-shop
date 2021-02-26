@@ -7,11 +7,11 @@
             <input class="form-control" formControlName="name" id="name">
         </div>
 
-        <div  formArrayName="typeList">
+        <div class="form-group"  formArrayName="typeList">
             <label class="toolt" >Types:
                 <span class="tooltiptext">Add available types</span>
             </label>
-            <button class="addBtn" type="button" (click)="onAddItemCtrl('typeList')">Add</button>
+            <button class="btn" type="button" (click)="onAddItemCtrl('typeList')">Add</button>
             <div 
             class="form-group" 
             *ngFor="let typeControl of typeControls; index as j">
@@ -19,11 +19,11 @@
             </div>
         </div>
 
-        <div  formArrayName="sizeList">
+        <div class="form-group" formArrayName="sizeList">
             <label class="toolt" >Sizes:
                 <span class="tooltiptext">Add available sizes</span>
             </label>
-            <button class="addBtn" type="button" (click)="onAddItemCtrl('sizeList')">Add</button>
+            <button class="btn" type="button" (click)="onAddItemCtrl('sizeList')">Add</button>
             <div 
             class="form-group" 
             *ngFor="let sizeControl of sizeControls; index as k">
@@ -31,22 +31,22 @@
             </div>
         </div>
 
-        <div  formArrayName="colorList">
+        <div class="form-group" formArrayName="colorList">
             <label class="toolt" >Colors:
                 <span class="tooltiptext">Add available colors</span>
             </label>
-            <button class="addBtn" type="button" (click)="onAddItemCtrl('colorList')">Add</button>
+            <button class="btn" type="button" (click)="onAddItemCtrl('colorList')">Add</button>
             <div 
             class="form-group" 
             *ngFor="let colorControl of colorControls; let l = index">
                 <input class="form-control" [formControlName]="l" >
             </div>
         </div>
-        <button type="submit">Submit</button>
+        <button class="btn" type="submit">Submit</button>
     </form>
 
     <ul>
-        <button (click)="onSaveItems()">Save Items</button>
+        <button class="btn" (click)="onSaveItems()">Save Items</button>
         <li *ngFor="let item of items, let i = index">
             <div>
                 <p>Name: {{item.name}}</p>
@@ -54,7 +54,7 @@
                 <p>Available sizes: {{item.sizeList}}</p>
                 <p>Available colors: {{item.colorList}}</p>
             </div>
-            <button (click)="onDeleteItem(i)" >Delete</button>
+            <button class="btn" (click)="onDeleteItem(i)" >Delete</button>
         </li>
             
     </ul>

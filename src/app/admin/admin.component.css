@@ -13,8 +13,17 @@ form {
     /* border: solid; */
     min-width: 300px;
     width: 50%;
-    border-right: solid 5px rgba(0, 253, 42, 0.548);
+    /* border-right: solid 5px rgba(0, 253, 42, 0.548); */
     margin-right: 10px;
+    background-color: #d5c7bc;
+}
+
+.form-group{
+    
+}
+
+input{
+    background-color: #f1fffa;
 }
 ul {
     list-style: none;
@@ -28,7 +37,7 @@ li{
     justify-content: space-between;
     align-items: flex-start;
     margin: 5px;
-    background-color: rgba(0, 253, 42, 0.548);
+    background-color: #d5c7bc;
     border-radius: 20px;
     padding: 10px;
 }
@@ -37,22 +46,40 @@ li p {
     
 }
 
-li button{
-    background-color: rgba(0, 0, 0, 0.473);
-    color: white;
+/* li button{
+    background-color: #93B7BE;
+    color: #454545;
     border-left: 2px solid  grey;
     border-top:2px  solid  grey;
     border-right: 2px solid  black;
     border-bottom: 2px solid  black;
-}
+} */
 
 li button:hover{
     background-color: rgba(0, 0, 0, 0.63);
 }
 
-.addBtn{
-    position: relative;
-    display: inline;
+ul .btn{
+    margin-right: 0.5em;
+    background-color: #93B7BE;
+    color: #454545;
+    border-left: 2px solid  grey;
+    border-top:2px  solid  grey;
+    border-right: 2px solid  black;
+    border-bottom: 2px solid  black;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+form .btn{
+    margin-right: 0.5em;
+    background-color: #93B7BE;
+    color: #454545;
+    border-left: 2px solid  grey;
+    border-top:2px  solid  grey;
+    border-right: 2px solid  black;
+    border-bottom: 2px solid  black;
+    padding: 0.3em;
 }
 
 input{
@@ -64,7 +91,7 @@ input{
 .toolt {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black;
+    
   }
   
   .toolt .tooltiptext {
