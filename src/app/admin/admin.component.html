@@ -1,3 +1,5 @@
+
+
 <div class="flex-container">
     <form [formGroup]="newItemAdminForm" (ngSubmit)="onCreateItem()">
         <div class="form-group">
@@ -6,32 +8,38 @@
         </div>
 
         <div  formArrayName="typeList">
-            <label for="typeList">Add available types:</label>
-            <button class="addBtn" type="button" (click)="onAddItemType()">Add</button>
+            <label class="toolt" >Types:
+                <span class="tooltiptext">Add available types</span>
+            </label>
+            <button class="addBtn" type="button" (click)="onAddItemCtrl('typeList')">Add</button>
             <div 
             class="form-group" 
-            *ngFor="let typeControl of newItemAdminForm.get('typeList').value; let j = index">
-                <input class="form-control" [formControlName]="j" id="typeList">
+            *ngFor="let typeControl of typeControls; index as j">
+                <input type="text" class="form-control" [formControlName]="j" >
             </div>
         </div>
 
         <div  formArrayName="sizeList">
-            <label for="sizeList">Add available sizes:</label>
-            <button class="addBtn" type="button" (click)="onAddItemSize()">Add</button>
+            <label class="toolt" >Sizes:
+                <span class="tooltiptext">Add available sizes</span>
+            </label>
+            <button class="addBtn" type="button" (click)="onAddItemCtrl('sizeList')">Add</button>
             <div 
             class="form-group" 
-            *ngFor="let sizeControl of newItemAdminForm.get('sizeList').value; let k = index">
-                <input class="form-control" [formControlName]="k" id="sizeList">
+            *ngFor="let sizeControl of sizeControls; index as k">
+                <input class="form-control" [formControlName]="k" >
             </div>
         </div>
 
         <div  formArrayName="colorList">
-            <label for="colorList">Add available colors:</label>
-            <button class="addBtn" type="button" (click)="onAddItemColor()">Add</button>
+            <label class="toolt" >Colors:
+                <span class="tooltiptext">Add available colors</span>
+            </label>
+            <button class="addBtn" type="button" (click)="onAddItemCtrl('colorList')">Add</button>
             <div 
             class="form-group" 
-            *ngFor="let colorControl of newItemAdminForm.get('colorList').value; let l = index">
-                <input class="form-control" [formControlName]="l" id="colorList">
+            *ngFor="let colorControl of colorControls; let l = index">
+                <input class="form-control" [formControlName]="l" >
             </div>
         </div>
         <button type="submit">Submit</button>

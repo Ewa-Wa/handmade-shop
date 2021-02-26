@@ -29,8 +29,9 @@ export class AdminComponent implements OnInit, OnDestroy  {
   
 
   ngOnInit(): void {
+    
     this.dataStorageService.fetchItems();
-    this.subscription = this.itemAdminService.itemsChanged.subscribe(
+    this.subscription = this.itemAdminService.itemsChanged$.subscribe(
       (items: ItemAdmin[]) => {
         this.items = items;
         console.log("admin subsc OnInit called");
@@ -48,19 +49,21 @@ export class AdminComponent implements OnInit, OnDestroy  {
 
   }
 
-  onAddItemType(){
-    const control = new FormControl(null, Validators.required);
-    (<FormArray>this.newItemAdminForm.get('typeList')).push(control);
+  get typeControls(){
+    return  (this.newItemAdminForm.get('typeList') as FormArray).controls;
   }
 
-  onAddItemSize(){
-    const control = new FormControl(null, Validators.required);
-    (<FormArray>this.newItemAdminForm.get('sizeList')).push(control);
+  get sizeControls(){
+    return  (this.newItemAdminForm.get('sizeList') as FormArray).controls;
   }
 
-  onAddItemColor(){
+  get colorControls(){
+    return  (this.newItemAdminForm.get('colorList') as FormArray).controls;
+  }
+
+  onAddItemCtrl(listName){
     const control = new FormControl(null, Validators.required);
-    (<FormArray>this.newItemAdminForm.get('colorList')).push(control);
+    (<FormArray>this.newItemAdminForm.get(listName)).push(control);
   }
 
   onCreateItem(){

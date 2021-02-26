@@ -17,7 +17,7 @@ export class ItemListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.dataStorageService.fetchItems();
-    this.subscription = this.itemClientService.itemsChanged.subscribe(
+    this.subscription = this.itemClientService.itemsChanged$.subscribe(
       (items: ItemClient[]) => {
         this.items = items;
       }

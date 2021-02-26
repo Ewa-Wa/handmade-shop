@@ -8,7 +8,7 @@ export class BasketService{
     private items: ItemClient[] = [
         new ItemClient("test")
     ];
-    itemsChanged = new Subject<ItemClient[]>();
+    itemsChanged$ = new Subject<ItemClient[]>();
     
     getItems(){
         return this.items.slice();
@@ -16,7 +16,7 @@ export class BasketService{
 
     addItem(item: ItemClient){
         this.items.push(item);
-        this.itemsChanged.next(this.items.slice());
+        this.itemsChanged$.next(this.items.slice());
 
     }
 }
