@@ -11,6 +11,7 @@
 
 form {
     /* border: solid; */
+    align-items: flex-start;
     min-width: 300px;
     width: 50%;
     /* border-right: solid 5px rgba(0, 253, 42, 0.548); */
@@ -37,26 +38,23 @@ li{
     justify-content: space-between;
     align-items: flex-start;
     margin: 5px;
+    margin-bottom: 20px;
     background-color: #d5c7bc;
     border-radius: 20px;
     padding: 10px;
+
 }
 
-li p {
-    
+li p.itemName{
+    font-weight: 500;
 }
 
-/* li button{
-    background-color: #93B7BE;
-    color: #454545;
-    border-left: 2px solid  grey;
-    border-top:2px  solid  grey;
-    border-right: 2px solid  black;
-    border-bottom: 2px solid  black;
-} */
+li p.details{
+    /* [ngClass] film 40  */
+}
 
-li button:hover{
-    background-color: rgba(0, 0, 0, 0.63);
+ul button:hover{
+    background-color: #759399;
 }
 
 ul .btn{
@@ -94,7 +92,7 @@ input{
     
   }
   
-  .toolt .tooltiptext {
+.toolt .tooltiptext {
     visibility: hidden;
     width: 120px;
     background-color: rgba(0, 0, 0, 0.747);
@@ -102,12 +100,12 @@ input{
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
-  
+
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
-  }
-  
-  .toolt:hover .tooltiptext {
+}
+
+.toolt:hover .tooltiptext {
     visibility: visible;
-  }
+}

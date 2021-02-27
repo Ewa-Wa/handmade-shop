@@ -23,6 +23,12 @@ import { ItemColorComponent } from './items/item-detail/item-color/item-color.co
 import { AdminComponent } from './admin/admin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ItemAdminService } from './admin/itemAdmin.service';
+import { BasicHighlightDirective } from './shared/directives/basic-highlight.directive';
+import { AuthComponent } from './auth/auth.component';
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth-guard.service';
+import { CanDeactivateGuard } from './admin/can-deactivate-guard.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 
@@ -41,6 +47,9 @@ import { ItemAdminService } from './admin/itemAdmin.service';
     ItemTypeComponent,
     ItemColorComponent,
     AdminComponent,
+    BasicHighlightDirective,
+    AuthComponent,
+    ErrorPageComponent
 
   ],
   imports: [
@@ -52,7 +61,7 @@ import { ItemAdminService } from './admin/itemAdmin.service';
     NoopAnimationsModule,
     HttpClientModule
   ],
-  providers: [BasketService, ItemClientService, ItemAdminService],
+  providers: [BasketService, ItemClientService, ItemAdminService, AuthGuard, AuthService, CanDeactivateGuard],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

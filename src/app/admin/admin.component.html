@@ -49,10 +49,10 @@
         <button class="btn" (click)="onSaveItems()">Save Items</button>
         <li *ngFor="let item of items, let i = index">
             <div>
-                <p>Name: {{item.name}}</p>
-                <p>Available types: {{item.typeList}}</p>
-                <p>Available sizes: {{item.sizeList}}</p>
-                <p>Available colors: {{item.colorList}}</p>
+                <p class="itemName">{{item.name | uppercase }}</p>
+                <p class="details">Types: {{item.typeList}}</p>
+                <p class="details">Sizes: {{item.sizeList}}</p>
+                <p class="details">Colors: {{item.colorList}}</p>
             </div>
             <button class="btn" (click)="onDeleteItem(i)" >Delete</button>
         </li>

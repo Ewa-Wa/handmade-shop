@@ -14,6 +14,12 @@
     width: 60vw;
     padding: 16px;
     z-index: 100;
-    background: white;
+    background: #d5c7bc;
     box-shadow: 0 2px 8px rgba(0,0,0,0.26);
+}
+
+button{
+    margin-right: 0.5em;
+    background-color: #466A72;
+    color: white;
 }

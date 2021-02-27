@@ -1,7 +1,10 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AdminComponent } from "./admin/admin.component";
+import { CanDeactivateGuard } from "./admin/can-deactivate-guard.service";
+import { AuthGuard } from "./auth/auth-guard.service";
 import { BasketComponent } from "./basket/basket.component";
+import { ErrorPageComponent } from "./error-page/error-page.component";
 import { HomeComponent } from "./home/home.component";
 import { ItemColorComponent } from "./items/item-detail/item-color/item-color.component";
 import { ItemDetailComponent } from "./items/item-detail/item-detail.component";
@@ -23,8 +26,10 @@ const appRoutes: Routes = [
             ]}
         ]
     },
-    {path: 'admin', component: AdminComponent},
-    {path: 'basket', component: BasketComponent}
+    {path: 'admin', canActivate: [AuthGuard] ,component: AdminComponent, canDeactivate: [CanDeactivateGuard]},
+    {path: 'basket', component: BasketComponent},
+    {path: 'not-found', component: ErrorPageComponent, data:{message:'Page not found'}},
+    {path: '**', redirectTo: '/not-found'}
 ];
 
 @NgModule({

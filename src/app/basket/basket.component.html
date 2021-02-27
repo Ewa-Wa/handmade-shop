@@ -1,5 +1,10 @@
 <ul>
-    <li *ngFor="let item of items">
+    <li 
+    *ngFor="let item of items"
+    appBasicHighlight
+    [defaultColor]="'pink'"
+    [highlightColor]="'red'"
+    >
         {{item.name}}, {{item.type}}
     </li>
 </ul>

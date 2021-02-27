@@ -1,9 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Subscription } from 'rxjs';
 
 import { DataStorageService } from '../shared/data-storage.service';
+import { CanComponentDeactivate } from './can-deactivate-guard.service';
 import { ItemAdmin } from './itemAdmin.model';
 import { ItemAdminService } from './itemAdmin.service';
 
@@ -12,11 +14,12 @@ import { ItemAdminService } from './itemAdmin.service';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent implements OnInit, OnDestroy  {
+export class AdminComponent implements OnInit, OnDestroy, CanComponentDeactivate  {
 
   items: ItemAdmin[];
   private subscription: Subscription;
   newItemAdminForm: FormGroup;
+  changesSaved = true;
 
   constructor(
     private route: ActivatedRoute, 
@@ -64,24 +67,36 @@ export class AdminComponent implements OnInit, OnDestroy  {
   onAddItemCtrl(listName){
     const control = new FormControl(null, Validators.required);
     (<FormArray>this.newItemAdminForm.get(listName)).push(control);
+    this.changesSaved = false;
   }
 
   onCreateItem(){
     const value = this.newItemAdminForm.value;
     const newItem = new ItemAdmin(value.name, value.typeList, value.sizeList, value.colorList);
     this.itemAdminService.createItem(newItem);
+    this.changesSaved = false;
 
   }
 
   onSaveItems(){
     this.dataStorageService.storeItems();
+    this.changesSaved = true;
   }
 
   onDeleteItem(index: number){
     this.itemAdminService.deleteItem(index);
+    this.changesSaved = false;
   }
 
   ngOnDestroy(){
    this.subscription.unsubscribe();
+  }
+
+  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
+    if(this.changesSaved){
+      return true;
+    } else {
+      return confirm('Do you want to leave without saving changes?')
+    }
   }
 }

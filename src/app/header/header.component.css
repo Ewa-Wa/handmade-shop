@@ -1,7 +1,8 @@
 
 .header{
     /* border: dashed; */
-    background-color:#454545;
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://www.wallpapertip.com/wmimgs/21-213102_wallpapers-for-black-space-stars-background-data-solar.jpg);
+    /* background-color:#454545; */
     padding: 0;
     margin: 10px;
     
@@ -66,12 +67,12 @@ nav a{
 }
 
 nav a:hover {
-    background-color: #93B7BE;
+    background-color: #93B7BE9f;
     color: #454545;
   }
 
 .router-link-active{
-    background-color: #93B7BE;
+    background-color: #93B7BE9f;
    
 }
 

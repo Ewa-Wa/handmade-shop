@@ -12,8 +12,10 @@
 #itemList{
     /* border: solid rgb(43, 220, 20); */
     margin: 0px;
-    padding-right: 2em;
-    background-image:  linear-gradient(to bottom right, #454545, #785964, #d5c7bc);
+    padding: 1em;
+    background-image:  linear-gradient(to  right, #454545, #785964, #d5c7bc);
+
+    
 }
 
 #details {
