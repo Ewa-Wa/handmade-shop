@@ -11,7 +11,7 @@
                 <li><a routerLink="/items" routerLinkActive="router-link-active">Items</a></li>
                 <li><a routerLink="#" routerLinkActive="router-link-active">Contact</a></li>
                 <li *ngIf="isLoggedIn"><a routerLink="/admin" routerLinkActive="router-link-active">Admin</a></li>
-                <li><a routerLink="/basket" routerLinkActive="router-link-active">Cart</a></li>
+                <li><a routerLink="/basket" routerLinkActive="router-link-active"[routerLinkActiveOptions]="{exact: true}" >Cart</a></li>
             </ul>
         </nav>
     </div>  <!-- / .container -->

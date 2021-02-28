@@ -1,7 +1,7 @@
 
 import { Component,  OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Data, Params, Router } from '@angular/router';
 import { ItemClient } from '../item/itemClient.model';
 import { ItemClientService } from '../item/itemClient.service';
 
@@ -25,13 +25,20 @@ export class ItemDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private itemClientService: ItemClientService) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(
-      (params: Params) => {
-        this.id = +params['id'];
-        this.item = this.itemClientService.getItem(this.id);
+    this.route.data.subscribe(
+      (data: Data) => {
+        this.item = data['item']
         this.setItemLists(this.item);
       }
-    );
+    )
+
+    // this.route.params.subscribe(
+    //   (params: Params) => {
+    //     this.id = +params['id'];
+    //     this.item = this.itemClientService.getItem(this.id);
+    //     this.setItemLists(this.item);
+    //   }
+    // );
   }
 
   setItemLists(item: ItemClient){

@@ -10,15 +10,16 @@ import { ItemColorComponent } from "./items/item-detail/item-color/item-color.co
 import { ItemDetailComponent } from "./items/item-detail/item-detail.component";
 import { ItemSizeComponent } from "./items/item-detail/item-size/item-size.component";
 import { ItemTypeComponent } from "./items/item-detail/item-type/item-type.component";
+import { ItemsResolver } from "./items/items-resolver.service";
 import { ItemsComponent } from "./items/items.component";
 
 
 const appRoutes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full'},
     {path: 'home', component: HomeComponent},
-    {path: 'items', component: ItemsComponent, 
+    {path: 'items', component: ItemsComponent,
     children: [
-        {path: ':id', component: ItemDetailComponent,
+        {path: ':id', component: ItemDetailComponent,  resolve: {item: ItemsResolver},
             children:[
                 {path: 'type', component: ItemTypeComponent},
                 {path: 'size', component: ItemSizeComponent},
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
 
 @NgModule({
     imports: [RouterModule.forRoot(appRoutes)],
+    // imports: [RouterModule.forRoot(appRoutes, {useHash: true})],
     exports: [RouterModule]
 })
 export class AppRoutingModule {

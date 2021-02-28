@@ -29,6 +29,7 @@ import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 import { CanDeactivateGuard } from './admin/can-deactivate-guard.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { ItemsResolver } from './items/items-resolver.service';
 
 
 
@@ -61,7 +62,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     NoopAnimationsModule,
     HttpClientModule
   ],
-  providers: [BasketService, ItemClientService, ItemAdminService, AuthGuard, AuthService, CanDeactivateGuard],
+  providers: [BasketService, ItemClientService, ItemAdminService, AuthGuard, AuthService, CanDeactivateGuard, ItemsResolver],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
