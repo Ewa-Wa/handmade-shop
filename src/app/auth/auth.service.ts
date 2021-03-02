@@ -4,15 +4,23 @@ import { Router } from "@angular/router";
 @Injectable()
 export class AuthService{
     isLoggedIn = false;
+    isAdmin = false;
 
     constructor( private router: Router) {}
 
-    login(){
-        this.isLoggedIn = true;
-        this.router.navigate(['/']);
+    login(role){
+        if(role === 'admin'){
+            this.isAdmin = true;
+            console.log('admin:');
+        } else {
+            this.isLoggedIn = true;
+            console.log('user:');
+        }
     }
+
     logout(){
         this.isLoggedIn = false;
-        this.router.navigate(['/']);
+        this.isAdmin = false;
+        // this.router.navigate(['/']);
     }
 }

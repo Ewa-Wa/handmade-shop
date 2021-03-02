@@ -6,12 +6,12 @@
         </a>
         <nav class="nav-list">
             <ul>
-                <li><button (click)="onLogin()">{{isLoggedIn ? 'Logout': 'Login'}}</button></li>
                 <li><a routerLink="/home" routerLinkActive="router-link-active">Home</a></li>
-                <li><a routerLink="/items" routerLinkActive="router-link-active">Items</a></li>
-                <li><a routerLink="#" routerLinkActive="router-link-active">Contact</a></li>
-                <li *ngIf="isLoggedIn"><a routerLink="/admin" routerLinkActive="router-link-active">Admin</a></li>
-                <li><a routerLink="/basket" routerLinkActive="router-link-active"[routerLinkActiveOptions]="{exact: true}" >Cart</a></li>
+                <li *ngIf="!isAdmin"><a routerLink="/items" routerLinkActive="router-link-active">Items</a></li>
+                <li *ngIf="!isAdmin"><a routerLink="#" routerLinkActive="router-link-active">Contact</a></li>
+                <li *ngIf="isAdmin"><a routerLink="/admin" routerLinkActive="router-link-active">Admin</a></li>
+                <li *ngIf="isLoggedIn"><a routerLink="/basket" routerLinkActive="router-link-active"[routerLinkActiveOptions]="{exact: true}" >Cart</a></li>
+                <li><a routerLink="/account" class="glyphicon glyphicon-user"></a></li>
             </ul>
         </nav>
     </div>  <!-- / .container -->

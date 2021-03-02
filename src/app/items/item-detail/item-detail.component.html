@@ -1,8 +1,8 @@
-<div class="container">
-    <div class="col col-sm-4">
-        <h2>{{item.name | uppercase}}</h2>
+<div class="cont">
+    <div class="f1">
         <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-            <div class="row">
+            <fieldset >
+                <legend>{{item.name | uppercase}}</legend>
                 <mat-form-field appearance="fill">
                     <mat-label>Type</mat-label>
                     <mat-select [(ngModel)]="item.type" name="type">
@@ -32,14 +32,14 @@
                         <a routerLink="color" >more info <i class="glyphicon glyphicon-hand-right"></i></a>
                     </mat-hint>
                 </mat-form-field>
-            </div>
-            <div class="row" >
+            </fieldset>
+            <div>
                 <button type="button" class="btn" (click)="onCancel()">Cancel</button>
                 <button type="submit" class="btn" (click)="onAddItemToBasket()">Add to basket</button>
             </div>
         </form>
     </div>
-    <div class="col col-xs-8">
+    <div class="f2">
         <router-outlet></router-outlet>
     </div>
 </div>

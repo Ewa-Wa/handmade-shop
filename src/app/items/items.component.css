@@ -6,18 +6,20 @@
 }
 
 .flex-container > div {
-    margin:0 1em;
+    /* margin:0 1em; */
 }
 
 #itemList{
     /* border: solid rgb(43, 220, 20); */
-    margin: 0px;
+    margin-right: 10px;
     padding: 1em;
     background-image:  linear-gradient(to  right, #454545, #785964, #d5c7bc);
-
-    
+    width: 250px;
+    flex-shrink: 0;
 }
 
 #details {
     /* border: solid rgb(43, 220, 20); */
+    flex-grow: 1;
+
 }

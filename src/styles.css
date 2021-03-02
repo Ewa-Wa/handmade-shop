@@ -4,7 +4,10 @@ html, body { height: 100%; }
 body {
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    /* background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(https://lh3.googleusercontent.com/proxy/3vnGA2l2AwAh0wnt01ZPnkJGNfFpYbsDkZlEBOqrZwabuajG5awFoGqjFn9pRIf210_obC8okzyA0yfde8xPwuwRYp_jThpbviwiZ9rw7QwxCpKcV2Up3voTg_hjb9u4TtDH1BbSiliMt23YC6GogcFgRxv3DN5HSYk4tyz_KQ); */
+    /* background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(https://www.wallpaperflare.com/static/547/958/327/abstract-graphic-design-vector-purple-wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; */
     background-color: #f1fffa;
     }
 

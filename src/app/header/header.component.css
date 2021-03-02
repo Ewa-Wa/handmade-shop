@@ -1,12 +1,15 @@
 
 .header{
     /* border: dashed; */
-    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://www.wallpapertip.com/wmimgs/21-213102_wallpapers-for-black-space-stars-background-data-solar.jpg);
-    /* background-color:#454545; */
+    /* background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://www.wallpapertip.com/wmimgs/21-213102_wallpapers-for-black-space-stars-background-data-solar.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; */
+    background-color:#454545;
     padding: 0;
-    margin: 10px;
-    
+    margin: 20px;
 }
+
 
 .flex-container{
     /* border: solid  green; */
@@ -60,7 +63,7 @@ nav a{
     /* border: solid yellow; */
     text-decoration: none;
     color: #f1fffa;
-    font-size: 3rem;
+    font-size: 2em;
     font-weight: bold;
     padding: 0.25em 0.25em;
     border-radius: 5px;
@@ -76,23 +79,30 @@ nav a:hover {
    
 }
 
-@media (max-width: 800px){
-    nav ul{
-        display: flex;
-        flex-direction: column;
-    }
-    nav li {
-        margin: 0;
-        text-align: center;
-    }
-    
-}
 
-@media (max-width: 1000px){
+@media (max-width: 900px){
     .flex-container{
         display: flex;
         flex-direction: column;
     }
 }
 
+@media (max-width: 600px){
+    nav ul{
+        display: flex;
+        flex-direction: column;
+    }
+    nav li {
+        margin: 5px;
+        text-align: center;
+    }
+    nav a{
+        /* border: solid yellow; */
+        font-size: 1.5em;
+        font-weight: bold;
+        padding: 0.25em 0.25em;
+        border-radius: 5px;
+    }
+    
+}
 

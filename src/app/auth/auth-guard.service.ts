@@ -11,7 +11,7 @@ export class AuthGuard implements CanActivate {
     // angular sam dostarczy argumenty do metody 
     canActivate(route: ActivatedRouteSnapshot,
                 state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-                    if(this.authService.isLoggedIn){
+                    if(this.authService.isAdmin){
                         return true;
                     } else {
                         this.router.navigate(['/'])

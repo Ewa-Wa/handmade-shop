@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { AdminComponent } from "./admin/admin.component";
 import { CanDeactivateGuard } from "./admin/can-deactivate-guard.service";
 import { AuthGuard } from "./auth/auth-guard.service";
+import { AuthComponent } from "./auth/auth.component";
 import { BasketComponent } from "./basket/basket.component";
 import { ErrorPageComponent } from "./error-page/error-page.component";
 import { HomeComponent } from "./home/home.component";
@@ -16,6 +17,7 @@ import { ItemsComponent } from "./items/items.component";
 
 const appRoutes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full'},
+    {path: 'account', component: AuthComponent},
     {path: 'home', component: HomeComponent},
     {path: 'items', component: ItemsComponent,
     children: [

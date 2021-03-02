@@ -1,6 +1,22 @@
-div.container {
-    /* background-color: #d5c7bc; */
+div.cont {
+    /* border: solid blue; */
+    display: flex;
     
+}
+div.f1{
+    /* border: solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+}
+
+div.f2{
+    /* border: solid black; */
+    align-self: center;
+
+}
+div form {
+
 }
 
 div.col {
@@ -11,12 +27,7 @@ div.row {
     /* border: solid red; */
 }
 
-#itemSummary {
-    background-color: black;
-    color: blueviolet;
-}
-
-h2 {
+legend {
     color: #785964;
 }
 
@@ -26,14 +37,11 @@ h2 {
     color: #454545;
 }
 
-
-input{
-    max-width: 300px;
-}
-
 mat-form-field {
     font-size: 1em;
     margin-bottom: 1.5em;
+    max-width: 200px;
+    display: block;
 }
 
 mat-label{

@@ -44,9 +44,9 @@ export class AdminComponent implements OnInit, OnDestroy, CanComponentDeactivate
 
     this.newItemAdminForm = new FormGroup({
       'name': new FormControl(null, Validators.required),
-      'typeList': new FormArray([]),
-      'sizeList': new FormArray([]),
-      'colorList': new FormArray([]),
+      'typeList': new FormArray([], Validators.required),
+      'sizeList': new FormArray([], Validators.required),
+      'colorList': new FormArray([], Validators.required),
 
     });
 
@@ -65,16 +65,23 @@ export class AdminComponent implements OnInit, OnDestroy, CanComponentDeactivate
   }
 
   onAddItemCtrl(listName){
-    const control = new FormControl(null, Validators.required);
+    const control = new FormControl();
     (<FormArray>this.newItemAdminForm.get(listName)).push(control);
     this.changesSaved = false;
   }
 
   onCreateItem(){
-    const value = this.newItemAdminForm.value;
-    const newItem = new ItemAdmin(value.name, value.typeList, value.sizeList, value.colorList);
-    this.itemAdminService.createItem(newItem);
-    this.changesSaved = false;
+    if(this.newItemAdminForm.valid){
+      const value = this.newItemAdminForm.value;
+      const newItem = new ItemAdmin(value.name, value.typeList, value.sizeList, value.colorList);
+      this.itemAdminService.createItem(newItem);
+      this.changesSaved = false;
+      this.newItemAdminForm.reset();
+    } else {
+      alert('Please fill all information')
+    }
+    
+    
 
   }
 

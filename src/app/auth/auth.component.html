@@ -1,1 +1,11 @@
-<p>auth works!</p>
+<div class="flex-container">
+    <div  *ngIf="!isLoggedIn && !isAdmin">
+        <a  (click)="onLogin('customer')">Login as Customer</a>
+        <a  (click)="onLogin('admin')">Login as Admin</a>
+    </div>
+
+    <div *ngIf="isLoggedIn || isAdmin">
+        <a  (click)="onLogout()">Logout</a>
+        <h3>You are logged in as {{isLoggedIn? 'Customer': 'Admin'}}</h3>
+    </div>
+</div>

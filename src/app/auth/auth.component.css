@@ -1,0 +1,32 @@
+.flex-container {
+    /* border: solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+
+}
+
+/* .btn {
+    margin: 5px;
+    background-color: #93B7BE;
+    color: #454545;
+} */
+
+a {
+    background-color:#45454595;
+    text-decoration: none;
+    color: #f1fffa;
+    font-size: 2em;
+    font-weight: bold;
+    padding: 0.25em 0.25em;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+a:hover {
+    background-color: #93B7BE9f;
+    color: #454545;
+    box-shadow:0 0 10px 1px grey;
+  }
