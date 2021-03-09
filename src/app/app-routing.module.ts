@@ -11,6 +11,7 @@ import { ItemColorComponent } from "./items/item-detail/item-color/item-color.co
 import { ItemDetailComponent } from "./items/item-detail/item-detail.component";
 import { ItemSizeComponent } from "./items/item-detail/item-size/item-size.component";
 import { ItemTypeComponent } from "./items/item-detail/item-type/item-type.component";
+import { ItemComponent } from "./items/item/item.component";
 import { ItemsResolver } from "./items/items-resolver.service";
 import { ItemsComponent } from "./items/items.component";
 
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
     children: [
         {path: ':id', component: ItemDetailComponent,  resolve: {item: ItemsResolver},
             children:[
+                {path: '', component: ItemTypeComponent, pathMatch: 'full'},
                 {path: 'type', component: ItemTypeComponent},
                 {path: 'size', component: ItemSizeComponent},
                 {path: 'color', component: ItemColorComponent},

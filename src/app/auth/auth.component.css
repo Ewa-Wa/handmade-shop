@@ -3,15 +3,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50vh;
-
+    animation: blink 8s infinite;
+    height: 80vh;
+    clip-path: polygon(100% 0, 100% 51%, 0 76%, 0 65%, 60% 0);
+    z-index: -1;
 }
 
-/* .btn {
-    margin: 5px;
-    background-color: #93B7BE;
-    color: #454545;
-} */
+/* @keyframes    @-webkit-keyframes*/
+@keyframes blink {
+    0% {
+        background: #45454595;
+    }
+    30% {
+        background: #93B7BE95;
+    }
+    70% {
+        background: #78596495;
+    }
+    100% {
+        background: #45454595;
+    }
+}
 
 a {
     background-color:#45454595;
@@ -30,3 +42,58 @@ a:hover {
     color: #454545;
     box-shadow:0 0 10px 1px grey;
   }
+
+.color-palette{
+  background-color: white;
+  display: flex;
+  justify-content: space-evenly;
+  height: 100px;
+}
+
+#color1{
+  background-color: #454545;
+}
+
+#color2{
+  background-color: #93B7BE;
+  /* 466A72 */
+}
+
+#color3{
+  background-color: #f1fffa;
+  /* ADFFE2 */
+}
+
+#color4{
+  background-color: #d5c7bc;
+}
+
+#color5{
+  background-color: #785964;
+}
+
+#color6{
+  background-color: #454545;
+}
+
+@media (max-width: 900px){
+  a {
+      font-size: 1.5em;
+      font-weight: 400;
+      border-radius: 5px;
+      margin: 5px;
+  }
+}
+
+@media (max-width: 600px){
+  .flex-container {
+      clip-path: polygon(37% 0, 100% 0, 100% 52%, 0 100%, 0 70%);
+
+  }
+  a {
+      font-size: 1.2em;
+      font-weight: 400;
+      border-radius: 5px;
+      margin: 2px;
+  }
+}

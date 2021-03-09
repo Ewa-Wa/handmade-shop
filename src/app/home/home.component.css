@@ -17,35 +17,7 @@ div{
   /* border: solid pink; */
 }
 
-.color-palette{
-  background-color: white;
-}
 
-#color1{
-  background-color: #454545;
-}
-
-#color2{
-  background-color: #93B7BE;
-  /* 466A72 */
-}
-
-#color3{
-  background-color: #f1fffa;
-  /* ADFFE2 */
-}
-
-#color4{
-  background-color: #d5c7bc;
-}
-
-#color5{
-  background-color: #785964;
-}
-
-#color6{
-  background-color: #454545;
-}
 
 img {
   max-width: 300px;
