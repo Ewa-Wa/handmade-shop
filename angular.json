@@ -24,9 +24,10 @@
               "src/assets"
             ],
             "styles": [
+
               "src/custom-theme.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },

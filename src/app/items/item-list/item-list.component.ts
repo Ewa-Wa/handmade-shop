@@ -7,7 +7,7 @@ import { ItemClientService } from '../item/itemClient.service';
 @Component({
   selector: 'app-item-list',
   templateUrl: './item-list.component.html',
-  styleUrls: ['./item-list.component.css']
+  styleUrls: ['./item-list.component.scss']
 })
 export class ItemListComponent implements OnInit, OnDestroy {
   items: ItemClient[];

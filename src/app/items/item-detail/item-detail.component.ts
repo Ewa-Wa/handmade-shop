@@ -8,7 +8,7 @@ import { ItemClientService } from '../item/itemClient.service';
 @Component({
   selector: 'app-item-detail',
   templateUrl: './item-detail.component.html',
-  styleUrls: ['./item-detail.component.css']
+  styleUrls: ['./item-detail.component.scss']
   // providers: [ItemService]
 })
 export class ItemDetailComponent implements OnInit {
