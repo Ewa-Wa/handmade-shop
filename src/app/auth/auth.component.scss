@@ -1,5 +1,5 @@
-.flex-container {
-    /* border: solid red; */
+.f-container {
+    // border: solid red;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,6 +7,13 @@
     height: 80vh;
     clip-path: polygon(100% 0, 100% 51%, 0 76%, 0 65%, 60% 0);
     z-index: -1;
+}
+
+.userData input{
+  display: block;
+}
+input.ng-invalid.ng-touched{
+  border: 1px solid red;
 }
 
 /* @keyframes    @-webkit-keyframes*/

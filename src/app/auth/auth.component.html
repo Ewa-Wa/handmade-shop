@@ -1,14 +1,32 @@
-<div class="flex-container">
-    <div  *ngIf="!isLoggedIn && !isAdmin">
+<div class="f-container">
+    <!-- <div  *ngIf="!isLoggedIn && !isAdmin">
         <a  (click)="onLogin('customer')">Login as Customer</a>
         <a  (click)="onLogin('admin')">Login as Admin</a>
-    </div>
+    </div> -->
+    <form *ngIf="!isLoggedIn && !isAdmin" [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm)">
+        <div formGroupName="userData" class="userData">
+            <label for="username">Enter username</label>
+            <input formControlName="username" id="username">
+            <label for="password">Enter password</label>
+            <input formControlName="password" id="password">
+        </div>
+        <div class="role">
+            <input type="radio" id="customer" formControlName="role" value="customer">
+            <label for="customer">customer</label>
+            <input type="radio" id="admin" formControlName="role" value="admin">
+            <label for="admin">admin</label>
+        </div>
+        <button type="submit">Login</button>
+    </form>
 
     <div *ngIf="isLoggedIn || isAdmin">
         <a  (click)="onLogout()">Logout</a>
-        <h3>You are logged in as {{isLoggedIn? 'Customer': 'Admin'}}</h3>
+        <h3>Welcome {{username}} ;) </h3>
+        <p>You are logged in as {{isLoggedIn? 'Customer': 'Admin'}}</p>
     </div>
 </div>
+
+
 
 <!-- <div class="color-palette">
     <p id="color1">Color palette</p>

@@ -57,6 +57,11 @@ $buttonTextColor : #454545;
             background-color: #f1fffa;
             // width: 100%;
         }
+
+        input.ng-invalid.ng-touched{
+            border: 1px solid red;
+        }
+
     }
 
         .toolt {

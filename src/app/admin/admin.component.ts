@@ -49,6 +49,10 @@ export class AdminComponent implements OnInit, OnDestroy, CanComponentDeactivate
       'colorList': new FormArray([], Validators.required),
     });
 
+    this.newItemAdminForm.statusChanges.subscribe(
+      (status) => console.log(status)
+    );
+
   }
 
   get typeControls(){
