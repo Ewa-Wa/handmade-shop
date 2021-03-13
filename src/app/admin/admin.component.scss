@@ -1,5 +1,11 @@
 $buttonColor : #93B7BE;
 $buttonTextColor : #454545;
+@mixin buttonBorder($thickness) {
+    border-left: $thickness solid  grey;
+    border-top:$thickness  solid  grey;
+    border-right: $thickness solid  black;
+    border-bottom: $thickness solid  black;
+}
 
 .flex-container{
     /* border: solid  green; */
@@ -15,30 +21,43 @@ $buttonTextColor : #454545;
         margin-right: 0.5em;
         background-color: $buttonColor;
         color: $buttonTextColor;
-        border-left: 2px solid  grey;
-        border-top:2px  solid  grey;
-        border-right: 2px solid  black;
-        border-bottom: 2px solid  black;
         padding: 0.3em;
+        @include buttonBorder(2px);
     
         &:hover{
             background-color: #759399;
         }
     }
 
-    form {
-        /* border: solid; */
+    .form-group{
+        // border: solid red;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         align-items: flex-start;
-        min-width: 300px;
+        width: 100%;
+
+        }
+
+    form {
+        // border: solid blue;
         width: 50%;
-        margin-right: 10px;
-        background-color: #d5c7bc;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        margin: 5px;
+        margin-bottom: 20px;
+        background-color: #b3a69d;
+        border-radius: 20px;
+        padding: 10px;
+
+
 
         input{
             background-color: #f1fffa;
-            width: 80%;
-            max-width: 400px;
+            // width: 100%;
         }
+    }
 
         .toolt {
             position: relative;
@@ -61,11 +80,10 @@ $buttonTextColor : #454545;
                 visibility: visible;
             }
         }
-    }
+    
 
     ul {
         list-style: none;
-        /* border: solid; */
         width: 50%;
         padding: 0;
     
@@ -73,9 +91,8 @@ $buttonTextColor : #454545;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin: 5px;
             margin-bottom: 20px;
-            background-color: #d5c7bc;
+            background-color: #b3a69d;
             border-radius: 20px;
             padding: 10px;
         
@@ -86,6 +103,60 @@ $buttonTextColor : #454545;
             p.details{
                 /* [ngClass] film 40  */
             }
+        }
+    }
+}
+
+@media (max-width: 600px){
+    .flex-container{
+        // border: solid  green; 
+        width: 100%;
+        max-width: 1600px;
+        padding: 0;
+        margin:0  auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2em;
+
+        .form-group{
+            // border: solid red;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+    
+            }
+
+        form {
+            // border: solid blue;
+            width: 90%;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            margin: 5px;
+            margin-bottom: 20px;
+            background-color: #b3a69d;
+            border-radius: 20px;
+            padding: 10px;
+    
+
+
+            input{
+                background-color: #f1fffa;
+                // width: 100%;
+            }
+        }
+    
+        ul {
+            // border: solid blue;
+            width: 90%;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            border-radius: 20px;
         }
     }
 }

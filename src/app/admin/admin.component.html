@@ -4,6 +4,7 @@
     <form [formGroup]="newItemAdminForm" (ngSubmit)="onCreateItem()">
         <div class="form-group">
             <label for="name">Name</label>
+            <span *ngIf="!newItemAdminForm.get('name').valid && newItemAdminForm.get('name').touched">Please enter valid value</span>
             <input type="text" class="form-control" formControlName="name" id="name" maxlength="15">
         </div>
 
@@ -15,6 +16,7 @@
             <div 
             class="form-group" 
             *ngFor="let typeControl of typeControls; index as j">
+            <span *ngIf="!typeControl.valid && typeControl.touched">Please enter valid value</span>
                 <input type="text" class="form-control" [formControlName]="j" >
             </div>
         </div>

@@ -1,31 +1,25 @@
 div.cont {
-    /* border: solid blue; */
+    // border: solid blue; 
     display: flex;
+    width: 95vw;
+    margin-top: 20px;
     
 }
-div.f1{
-    /* border: solid black; */
+
+div.form-detais{
+    // border: solid black; 
     display: flex;
-    flex-direction: column;
-    justify-content:flex-start;
+    // flex-direction: column;
+    justify-content:center;
+    
 }
 
-div.f2{
+div.form-more-info{
     /* border: solid black; */
     align-self: center;
 
 }
-div form {
 
-}
-
-div.col {
-    /* border: solid pink; */
-}
-
-div.row {
-    /* border: solid red; */
-}
 
 legend {
     color: #785964;
@@ -40,7 +34,7 @@ legend {
 mat-form-field {
     font-size: 1em;
     margin-bottom: 1.5em;
-    max-width: 200px;
+    width: 200px;
     display: block;
 }
 
@@ -59,4 +53,35 @@ mat-hint a {
 
 mat-hint i {
     font-size: 1.5rem;
+}
+
+@media (max-width: 600px){
+    div.cont {
+        flex-direction: column;
+        
+    }
+    mat-form-field {
+        // border: solid red;
+        font-size: 1em;
+        margin-bottom: 1.5em;
+        width: 300px;
+        display: block;
+    }
+    
+    mat-label{
+        color: #785964;
+        font-size: 2rem;
+        font-weight: 400;
+    }
+    
+    mat-hint a {
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: #93B7BE;
+    }
+    
+    mat-hint i {
+        font-size: 1.5rem;
+    }
 }

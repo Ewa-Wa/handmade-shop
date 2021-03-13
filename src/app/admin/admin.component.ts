@@ -47,7 +47,6 @@ export class AdminComponent implements OnInit, OnDestroy, CanComponentDeactivate
       'typeList': new FormArray([], Validators.required),
       'sizeList': new FormArray([], Validators.required),
       'colorList': new FormArray([], Validators.required),
-
     });
 
   }
@@ -65,7 +64,7 @@ export class AdminComponent implements OnInit, OnDestroy, CanComponentDeactivate
   }
 
   onAddItemCtrl(listName){
-    const control = new FormControl();
+    const control = new FormControl(null, Validators.required);
     (<FormArray>this.newItemAdminForm.get(listName)).push(control);
     this.changesSaved = false;
   }

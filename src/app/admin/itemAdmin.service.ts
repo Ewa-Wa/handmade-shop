@@ -18,13 +18,14 @@ export class ItemAdminService {
         return this.items.slice();
     }
 
-
+    // guard clauses -----------------
     getItem(index: number) {
+        if (index !== null) return
         return this.items[index];
     }
 
 
-    createItem(item: ItemAdmin){ //addRecipe
+    createItem(item: ItemAdmin){ 
         this.items.push(item);
         this.itemsChanged$.next(this.items.slice());
     }
