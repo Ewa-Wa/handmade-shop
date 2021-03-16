@@ -1,26 +1,29 @@
-<div class="f-container">
-    <!-- <div  *ngIf="!isLoggedIn && !isAdmin">
-        <a  (click)="onLogin('customer')">Login as Customer</a>
-        <a  (click)="onLogin('admin')">Login as Admin</a>
-    </div> -->
+<div class="container">
     <form *ngIf="!isLoggedIn && !isAdmin" [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm)">
         <div formGroupName="userData" class="userData">
-            <label for="username">Enter username</label>
+            <label for="username">Enter username:</label>
+            <p *ngIf="!loginForm.get('userData.username').valid && loginForm.get('userData.username').touched">Please enter username</p>
             <input formControlName="username" id="username">
-            <label for="password">Enter password</label>
-            <input formControlName="password" id="password">
+            <label for="password">Enter password:</label>
+            <p *ngIf="!loginForm.get('userData.password').valid && loginForm.get('userData.password').touched">Please enter password</p>
+            <input formControlName="password" id="password" type="password">
         </div>
         <div class="role">
-            <input type="radio" id="customer" formControlName="role" value="customer">
-            <label for="customer">customer</label>
-            <input type="radio" id="admin" formControlName="role" value="admin">
-            <label for="admin">admin</label>
+            
+            <label for="customer" class="radio-label">customer
+                <input type="radio" id="customer" formControlName="role" value="customer">
+                <span class="checkmark"></span>
+            </label>
+            <label for="admin" class="radio-label">admin
+                <input type="radio" id="admin" formControlName="role" value="admin">
+                <span class="checkmark"></span>
+            </label>
         </div>
-        <button type="submit">Login</button>
+        <button type="submit" [disabled]="isLoginBtnDisabled">Login</button>
     </form>
 
     <div *ngIf="isLoggedIn || isAdmin">
-        <a  (click)="onLogout()">Logout</a>
+        <button  (click)="onLogout()">Logout</button>
         <h3>Welcome {{username}} ;) </h3>
         <p>You are logged in as {{isLoggedIn? 'Customer': 'Admin'}}</p>
     </div>

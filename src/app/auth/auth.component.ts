@@ -11,6 +11,7 @@ export class AuthComponent implements OnInit {
 
   loginForm: FormGroup;
   username: string;
+  isLoginBtnDisabled = true;
 
   constructor(private authService: AuthService) { }
 
@@ -23,6 +24,16 @@ export class AuthComponent implements OnInit {
       'role': new FormControl('customer')
     });
 
+    this.loginForm.statusChanges.subscribe(
+      (status) => {
+        console.log(status);
+        if(status === 'VALID'){
+          this.isLoginBtnDisabled = false;
+        } else {
+          this.isLoginBtnDisabled = true;
+        }
+      }
+    )
   }
 
   onLogin(form: FormGroup){
