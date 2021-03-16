@@ -12,17 +12,11 @@ import { BasketService } from './basket.service';
 export class BasketComponent implements OnInit {
   item: ItemClient;
   items: ItemClient[];
-  private subscription: Subscription;
 
-  constructor(private itemClientService: ItemClientService, private basketService: BasketService) { }
+  constructor( private basketService: BasketService) { }
 
   ngOnInit(): void {
     this.items = this.basketService.getItems();
-    this.subscription = this.basketService.itemsChanged$.subscribe(
-      (items: ItemClient[]) => {
-        this.items = items;
-      }
-    );
   }
 
 }

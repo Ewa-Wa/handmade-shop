@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Subscription } from 'rxjs';
 
@@ -22,8 +21,6 @@ export class AdminComponent implements OnInit, OnDestroy, CanComponentDeactivate
   changesSaved = true;
 
   constructor(
-    private route: ActivatedRoute, 
-    private router: Router, 
     private itemAdminService: ItemAdminService,  
     private dataStorageService: DataStorageService)
      {

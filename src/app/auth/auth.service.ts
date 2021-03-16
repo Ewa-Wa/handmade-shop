@@ -1,12 +1,12 @@
 import { Injectable } from "@angular/core";
-import { Router } from "@angular/router";
+
 
 @Injectable()
 export class AuthService{
     isLoggedIn = false;
     isAdmin = false;
 
-    constructor( private router: Router) {}
+    constructor( ) {}
 
     login(role){
         if(role === 'admin'){
