@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './auth.service';
 
 @Component({
@@ -13,16 +13,24 @@ export class AuthComponent implements OnInit {
   username: string;
   isLoginBtnDisabled = true;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private fb: FormBuilder) {
+    this.loginForm = fb.group({
+      userData: fb.group({
+        username: [null, Validators.required],
+        password: [null, Validators.required]
+      }),
+      role: ['customer']
+    })
+   }
 
   ngOnInit(): void {
-    this.loginForm = new FormGroup({
-      'userData': new FormGroup({
-        'username': new FormControl(null, Validators.required),
-        'password': new FormControl(null, Validators.required)
-      }),
-      'role': new FormControl('customer')
-    });
+    // this.loginForm = new FormGroup({
+    //   'userData': new FormGroup({
+    //     'username': new FormControl(null, Validators.required),
+    //     'password': new FormControl(null, Validators.required)
+    //   }),
+    //   'role': new FormControl('customer')
+    // });
 
     this.loginForm.statusChanges.subscribe(
       (status) => {
