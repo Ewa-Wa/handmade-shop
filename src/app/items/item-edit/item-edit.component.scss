@@ -1,0 +1,41 @@
+$buttonColor : #93B7BE;
+$buttonDeleteColor : rgba(255, 0, 0, 0.637);
+$buttonTextColor : #454545;
+@mixin buttonBorder($thickness) {
+    border-left: $thickness solid  grey;
+    border-top:$thickness  solid  grey;
+    border-right: $thickness solid  black;
+    border-bottom: $thickness solid  black;
+}
+
+.form-input{
+    display: flex;
+}
+
+.glyphicon-plus{
+    background-color: $buttonColor;
+    &:hover{
+        background-color: #759399;
+    }
+}
+
+.glyphicon-minus{
+    background-color: $buttonDeleteColor;
+    &:hover{
+        background-color: red;
+    }
+}   
+
+.btn{
+    
+    margin: 0.1em;
+    color: $buttonTextColor;
+    padding: 0.3em;
+    @include buttonBorder(2px);
+
+
+}
+
+hr{
+    border-top: 3px solid #af8091;
+}

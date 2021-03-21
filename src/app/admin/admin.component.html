@@ -1,7 +1,10 @@
 
+<button class="btn" (click)="onSaveItems()">Save Items</button>
+<button class="btn" (click)="onAddNewItemSwitch()">Add Item</button>
 
-<div class="flex-container">
-    <form [formGroup]="newItemAdminForm" (ngSubmit)="onCreateItem()">
+<div class="f-container">
+
+    <form [formGroup]="newItemAdminForm" (ngSubmit)="onCreateItem()" *ngIf="isAddNewItem">
         <div class="form-group">
             <label for="name">Name</label>
             <span *ngIf="!newItemAdminForm.get('name').valid && newItemAdminForm.get('name').touched">Please enter valid value</span>
@@ -45,19 +48,43 @@
             </div>
         </div>
         <button class="btn" type="submit">Submit</button>
+        <button class="btn" (click)="onAddNewItemSwitch()">Cancel</button>
     </form>
 
     <ul>
-        <button class="btn" (click)="onSaveItems()">Save Items</button>
-        <li *ngFor="let item of items, let i = index">
-            <div>
-                <p class="itemName">{{item.name | uppercase }}</p>
-                <p class="details">Types: {{item.typeList}}</p>
-                <p class="details">Sizes: {{item.sizeList}}</p>
-                <p class="details">Colors: {{item.colorList}}</p>
+        <li *ngFor="let item of items, let i = index" >
+            <div class="list">
+                <h4 class="itemName">{{item.name | uppercase }}</h4>
+                <div>
+                    <button class="btn" (click)="onShowItemDetails(i)">More</button>
+                    <button class="btn" (click)="onEditItem(i)">Edit</button>
+                    <button class="btn" (click)="onDeleteItem(i)" >Delete</button>
+                </div>
             </div>
-            <button class="btn" (click)="onDeleteItem(i)" >Delete</button>
+            <div  *ngIf="showItemDeatils === i">
+                <hr>
+                <h5>Types:</h5>
+                <div class="p-list">
+                    <p class="details " *ngFor="let type of item.typeList"><span class="glyphicon glyphicon-ok"></span>{{type}}</p>
+                </div>
+                <hr>
+                <h5>Sizes:</h5>
+                <div class="p-list">
+                    <p class="details " *ngFor="let size of item.sizeList"><span class="glyphicon glyphicon-ok"></span>{{size}}</p>
+                </div>
+                <hr>
+                <h5>Colors:</h5>
+                <div class="p-list">
+                    <p class="details " *ngFor="let color of item.colorList"><span class="glyphicon glyphicon-ok"></span>{{color}}</p>
+                </div>
+                <hr>
+            </div>
+
+            <div class="editItem" *ngIf="i === indexEditItem && itemAdminService.isItemEdit">
+                <router-outlet *ngIf="i === indexEditItem" ></router-outlet>
+            </div>
         </li>
-            
     </ul>
+    
 </div>
+

@@ -1,4 +1,5 @@
 $buttonColor : #93B7BE;
+$buttonHoverColor: #42e0ff;
 $buttonTextColor : #454545;
 @mixin buttonBorder($thickness) {
     border-left: $thickness solid  grey;
@@ -7,110 +8,183 @@ $buttonTextColor : #454545;
     border-bottom: $thickness solid  black;
 }
 
-.flex-container{
-    /* border: solid  green; */
+@mixin buttonBorderHover($thickness) {
+    border-left: $thickness solid  black;
+    border-top:$thickness  solid  black;
+    border-right: $thickness solid  grey;
+    border-bottom: $thickness solid  grey;
+}
+
+
+.f-container{
+    border: solid  green; 
     width: 100%;
     max-width: 1600px;
     padding: 0;
-    margin:0  auto;
+    margin:0;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    margin-top: 2em;
+}
 
-    .btn{
-        margin-right: 0.5em;
-        background-color: $buttonColor;
-        color: $buttonTextColor;
-        padding: 0.3em;
-        @include buttonBorder(2px);
-    
-        &:hover{
-            background-color: #759399;
-        }
+.btn{
+    margin-right: 0.5em;
+    background-color: $buttonColor;
+    color: $buttonTextColor;
+    padding: 0.3em;
+    transition: background-color 1.5s;
+    @include buttonBorder(2px);
+
+    &:hover{
+        background-color: $buttonHoverColor;
     }
+}
+
+
+
+form {
+    border: solid blue;
+    width: 50%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    margin-bottom: 20px;
+    background-color: #b3a69d;
+    border-radius: 20px;
+    padding: 10px;
 
     .form-group{
-        // border: solid red;
+        border: solid red;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-start;
         width: 100%;
-
         }
 
-    form {
-        // border: solid blue;
-        width: 50%;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        margin: 5px;
-        margin-bottom: 20px;
-        background-color: #b3a69d;
-        border-radius: 20px;
-        padding: 10px;
 
-
-
-        input{
-            background-color: #f1fffa;
-            // width: 100%;
-        }
-
-        input.ng-invalid.ng-touched{
-            border: 1px solid red;
-        }
-
+    input{
+        background-color: #f1fffa;
+        // width: 100%;
     }
 
-        .toolt {
-            position: relative;
-            display: inline-block;
-            
-            .tooltiptext {
-                visibility: hidden;
-                width: 120px;
-                background-color: rgba(0, 0, 0, 0.747);
-                color: #fff;
-                text-align: center;
-                border-radius: 6px;
-                padding: 5px 0;
-                /* Position the tooltip */
-                position: absolute;
-                z-index: 1;
-            }
+    input.ng-invalid.ng-touched{
+        border: 1px solid red;
+    }
+
+    .toolt {
+        position: relative;
+        display: inline-block;
         
-            &:hover .tooltiptext {
-                visibility: visible;
-            }
+        .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: rgba(0, 0, 0, 0.747);
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            /* Position the tooltip */
+            position: absolute;
+            z-index: 1;
         }
     
+        &:hover .tooltiptext {
+            visibility: visible;
+        }
+    }
 
-    ul {
-        list-style: none;
-        width: 50%;
-        padding: 0;
+}
+
+
+
+
+ul {
     
-        li{
+    list-style: none;
+    width: 50%;
+    padding: 0;
+
+    li{
+        
+        margin-bottom: 20px;
+        background-color: #af8091;
+        border-radius: 20px;
+        padding: 10px;
+        // transition: background-color 1s;
+        @include buttonBorder(4px);
+
+        &:hover {
+            // background-color: rgb(126, 29, 126);
+
+            // animation: blink 8s initial;
+            // @keyframes blink {
+            //     0% {
+            //         background: #af8091;
+            //     }
+            //     30% {
+            //         background: #af809195;
+            //     }
+            //     70% {
+            //         background: #78596495;
+            //     }
+            //     100% {
+            //         background: #45454595;
+            //     }
+            // }
+        }
+
+        .list{
+            // border: solid red;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 20px;
-            background-color: #b3a69d;
-            border-radius: 20px;
-            padding: 10px;
-        
-            p.itemName{
-                font-weight: 500;
-            }
-    
+        }
+
+        .p-list{
+            display: flex;
+            flex-wrap: wrap;
+            // border: solid white;
+
             p.details{
-                /* [ngClass] film 40  */
+                // border: solid pink;
+                // border-left:  2px solid black;
+                font-weight: 500;
+                padding: 0px;
+                margin: 0;
+                margin-right: 10px;
+            }
+
+            span{
+                margin-right: 4px;
+                font-size: 0.7em;
             }
         }
+    
+        h4.itemName{
+            font-weight: 500;
+            
+        }
+
+
+
+        .editItem{
+            background-color: #dfcfc3;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        hr{
+            border-top: 2px solid black;
+        }
+
+
     }
 }
+
+
+
 
 @media (max-width: 600px){
     .flex-container{

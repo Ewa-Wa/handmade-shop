@@ -1,0 +1,48 @@
+
+<form [formGroup]="editItemAdminForm" (ngSubmit)="onUpdateItem()">
+    <!-- NAME -->
+    <div class="form-group">
+        <label for="name">Name</label>
+        <span *ngIf="!editItemAdminForm.get('name').valid && editItemAdminForm.get('name').touched">Please enter valid value</span>
+        <input type="text" class="form-control" formControlName="name" id="name" maxlength="15">
+        <hr>
+    </div>
+
+    <!-- TYPE LIST -->
+    <div class="form-group"  formArrayName="typeList">
+        <label >Types:</label>
+        <div class="form-input" *ngFor="let typeControl of typeControls; index as j">
+            <input type="text" class="form-control" [formControlName]="j" >
+            <button class="btn glyphicon glyphicon-minus" (click)="onDeteleItemCtrl('typeList', j)"></button>
+        </div>
+        <button class="btn glyphicon glyphicon-plus" type="button" (click)="onAddItemCtrl('typeList')"></button>
+        <hr>
+    </div>
+
+    <!-- SIZE LIST -->
+    <div class="form-group"  formArrayName="sizeList">
+        <label >Sizes:</label>
+        <div class="form-input" *ngFor="let sizeControl of sizeControls; index as j">
+            <input type="text" class="form-control" [formControlName]="j" >
+            <button class="btn glyphicon glyphicon-minus" (click)="onDeteleItemCtrl('sizeList', j)"></button>
+        </div>
+        <button class="btn glyphicon glyphicon-plus" type="button" (click)="onAddItemCtrl('sizeList')" ></button>
+        <hr >
+    </div>
+
+    <!-- COLOR LIST -->
+    <div class="form-group"  formArrayName="colorList">
+        <label >Colors:</label>
+        <div class="form-input" *ngFor="let colorControl of colorControls; index as j">
+            <input type="text" class="form-control" [formControlName]="j" >
+            <button class="btn glyphicon glyphicon-minus" (click)="onDeteleItemCtrl('colorList', j)"></button>
+        </div>
+        <button class="btn glyphicon glyphicon-plus" type="button" (click)="onAddItemCtrl('colorList')"></button>
+        <hr>
+    </div>
+
+    <!-- FORM BUTTONS -->
+    <button class="btn" type="submit">Submit</button>
+    <button class="btn" (click)="onCancelEditForm()">Cancel</button>
+</form>
+

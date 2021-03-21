@@ -11,10 +11,9 @@ export class AuthService{
     login(role){
         if(role === 'admin'){
             this.isAdmin = true;
-            console.log('admin:');
         } else {
             this.isLoggedIn = true;
-            console.log('user:');
+
         }
     }
 

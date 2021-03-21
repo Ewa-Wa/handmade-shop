@@ -17,7 +17,7 @@ export class AuthComponent implements OnInit {
     this.loginForm = fb.group({
       userData: fb.group({
         username: [null, Validators.required],
-        password: [null, Validators.required]
+        password: [null, [Validators.required, Validators.minLength(6)]]
       }),
       role: ['customer']
     })

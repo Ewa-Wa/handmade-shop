@@ -6,6 +6,7 @@ import { ItemAdmin } from "./itemAdmin.model";
 export class ItemAdminService {
     itemsChanged$ = new Subject<ItemAdmin[]>();
     private items: ItemAdmin[] =[];
+    isItemEdit = false;
 
     constructor(){}
 
@@ -20,7 +21,7 @@ export class ItemAdminService {
 
     // guard clauses -----------------
     getItem(index: number) {
-        if (index !== null) return
+        if (index === null) return
         return this.items[index];
     }
 
@@ -34,6 +35,11 @@ export class ItemAdminService {
         console.log('deleteItem index: ' + index);
         this.items.splice(index, 1);
         this.itemsChanged$.next(this.items.slice());
+    }
+
+    editItem(item: ItemAdmin){
+        let index = this.items.indexOf(item);
+        this.items[index] = item;
     }
 
 }

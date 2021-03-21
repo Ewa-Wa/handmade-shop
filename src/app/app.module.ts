@@ -30,6 +30,7 @@ import { AuthGuard } from './auth/auth-guard.service';
 import { CanDeactivateGuard } from './admin/can-deactivate-guard.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { ItemsResolver } from './items/items-resolver.service';
+import { ItemEditComponent } from './items/item-edit/item-edit.component';
 
 
 
@@ -50,7 +51,8 @@ import { ItemsResolver } from './items/items-resolver.service';
     AdminComponent,
     BasicHighlightDirective,
     AuthComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    ItemEditComponent
 
   ],
   imports: [

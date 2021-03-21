@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Subscription } from 'rxjs';
 
@@ -19,10 +20,15 @@ export class AdminComponent implements OnInit, OnDestroy, CanComponentDeactivate
   private subscription: Subscription;
   newItemAdminForm: FormGroup;
   changesSaved = true;
+  showItemDeatils: number;
+  isAddNewItem = false
+  indexEditItem: number;
 
   constructor(
     private itemAdminService: ItemAdminService,  
-    private dataStorageService: DataStorageService)
+    private dataStorageService: DataStorageService, 
+    private route: Router,
+    private activatedRoute: ActivatedRoute)
      {
 
       }
@@ -64,6 +70,15 @@ export class AdminComponent implements OnInit, OnDestroy, CanComponentDeactivate
     return  (this.newItemAdminForm.get('colorList') as FormArray).controls;
   }
 
+  onShowItemDetails(index: number){
+    this.showItemDeatils = index;
+  }
+
+  onAddNewItemSwitch(){
+    this.isAddNewItem = !this.isAddNewItem;
+  }
+
+
   onAddItemCtrl(listName){
     const control = new FormControl(null, Validators.required);
     (<FormArray>this.newItemAdminForm.get(listName)).push(control);
@@ -80,9 +95,6 @@ export class AdminComponent implements OnInit, OnDestroy, CanComponentDeactivate
     } else {
       alert('Please fill all information')
     }
-    
-    
-
   }
 
   onSaveItems(){
@@ -93,6 +105,13 @@ export class AdminComponent implements OnInit, OnDestroy, CanComponentDeactivate
   onDeleteItem(index: number){
     this.itemAdminService.deleteItem(index);
     this.changesSaved = false;
+  }
+
+  onEditItem(index: number){
+    this.itemAdminService.isItemEdit = true;
+    this.indexEditItem = index;
+    this.route.navigate([index], {relativeTo: this.activatedRoute});
+
   }
 
   ngOnDestroy(){
