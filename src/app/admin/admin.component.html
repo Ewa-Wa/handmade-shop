@@ -5,63 +5,80 @@
 <div class="f-container">
 
     <form [formGroup]="newItemAdminForm" (ngSubmit)="onCreateItem()" *ngIf="isAddNewItem">
+        
+        <!-- NAME -->
         <div class="form-group">
             <label for="name">Name</label>
             <span *ngIf="!newItemAdminForm.get('name').valid && newItemAdminForm.get('name').touched">Please enter valid value</span>
             <input type="text" class="form-control" formControlName="name" id="name" maxlength="15">
+            <hr>
         </div>
 
+        <!-- TYPE LIST -->
         <div class="form-group"  formArrayName="typeList">
             <label class="toolt" >Types:
                 <span class="tooltiptext">Add available types</span>
             </label>
-            <button class="btn" type="button" (click)="onAddItemCtrl('typeList')">Add</button>
+            
             <div 
-            class="form-group" 
+            class="form-input" 
             *ngFor="let typeControl of typeControls; index as j">
-            <span *ngIf="!typeControl.valid && typeControl.touched">Please enter valid value</span>
+                <!-- <span *ngIf="!typeControl.valid && typeControl.touched">Please enter valid value</span> -->
                 <input type="text" class="form-control" [formControlName]="j" >
+                <button class="btn glyphicon glyphicon-minus" (click)="onDeteleItemCtrl('typeList', j)"></button>
             </div>
+            <button class="btn glyphicon glyphicon-plus" type="button" (click)="onAddItemCtrl('typeList')"></button>
+            <hr>
         </div>
 
+        <!-- SIZE LIST -->
         <div class="form-group" formArrayName="sizeList">
             <label class="toolt" >Sizes:
                 <span class="tooltiptext">Add available sizes</span>
             </label>
-            <button class="btn" type="button" (click)="onAddItemCtrl('sizeList')">Add</button>
             <div 
-            class="form-group" 
+            class="form-input" 
             *ngFor="let sizeControl of sizeControls; index as k">
                 <input class="form-control" [formControlName]="k" >
+                <button class="btn glyphicon glyphicon-minus" (click)="onDeteleItemCtrl('sizeList', k)"></button>
             </div>
+            <button class="btn glyphicon glyphicon-plus" type="button" (click)="onAddItemCtrl('sizeList')"></button>
+            <hr >
         </div>
 
+        <!-- COLOR LIST -->
         <div class="form-group" formArrayName="colorList">
             <label class="toolt" >Colors:
                 <span class="tooltiptext">Add available colors</span>
             </label>
-            <button class="btn" type="button" (click)="onAddItemCtrl('colorList')">Add</button>
+
             <div 
-            class="form-group" 
+            class="form-input" 
             *ngFor="let colorControl of colorControls; let l = index">
                 <input class="form-control" [formControlName]="l" >
+                <button class="btn glyphicon glyphicon-minus" (click)="onDeteleItemCtrl('colorList', l)"></button>
             </div>
+            <button class="btn glyphicon glyphicon-plus" type="button" (click)="onAddItemCtrl('colorList')"></button>
+            <hr >
         </div>
+
+        <!-- FORM BUTTONS -->
         <button class="btn" type="submit">Submit</button>
         <button class="btn" (click)="onAddNewItemSwitch()">Cancel</button>
     </form>
 
+    <!-- ITEM LIST -->
     <ul>
         <li *ngFor="let item of items, let i = index" >
             <div class="list">
                 <h4 class="itemName">{{item.name | uppercase }}</h4>
                 <div>
-                    <button class="btn" (click)="onShowItemDetails(i)">More</button>
+                    <button class="btn" (click)="onShowItemDetails(i)">{{isShowItemDetails ? 'Less' : 'More'}}</button>
                     <button class="btn" (click)="onEditItem(i)">Edit</button>
                     <button class="btn" (click)="onDeleteItem(i)" >Delete</button>
                 </div>
             </div>
-            <div  *ngIf="showItemDeatils === i">
+            <div  *ngIf="showItemDetails === i && isShowItemDetails">
                 <hr>
                 <h5>Types:</h5>
                 <div class="p-list">

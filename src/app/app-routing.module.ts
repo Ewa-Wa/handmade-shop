@@ -11,6 +11,7 @@ import { ItemColorComponent } from "./items/item-detail/item-color/item-color.co
 import { ItemDetailComponent } from "./items/item-detail/item-detail.component";
 import { ItemSizeComponent } from "./items/item-detail/item-size/item-size.component";
 import { ItemTypeComponent } from "./items/item-detail/item-type/item-type.component";
+import { ItemEditComponent } from "./items/item-edit/item-edit.component";
 import { ItemComponent } from "./items/item/item.component";
 import { ItemsResolver } from "./items/items-resolver.service";
 import { ItemsComponent } from "./items/items.component";
@@ -31,7 +32,10 @@ const appRoutes: Routes = [
             ]}
         ]
     },
-    {path: 'admin', canActivate: [AuthGuard] ,component: AdminComponent, canDeactivate: [CanDeactivateGuard]},
+    {path: 'admin', canActivate: [AuthGuard] ,component: AdminComponent, canDeactivate: [CanDeactivateGuard],
+        children:[{
+            path: ':id', component: ItemEditComponent
+        }]},
     {path: 'basket', component: BasketComponent},
     {path: 'not-found', component: ErrorPageComponent, data:{message:'Page not found'}},
     {path: '**', redirectTo: '/not-found'}

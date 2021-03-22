@@ -1,5 +1,6 @@
 
 <form [formGroup]="editItemAdminForm" (ngSubmit)="onUpdateItem()">
+
     <!-- NAME -->
     <div class="form-group">
         <label for="name">Name</label>
@@ -22,9 +23,9 @@
     <!-- SIZE LIST -->
     <div class="form-group"  formArrayName="sizeList">
         <label >Sizes:</label>
-        <div class="form-input" *ngFor="let sizeControl of sizeControls; index as j">
-            <input type="text" class="form-control" [formControlName]="j" >
-            <button class="btn glyphicon glyphicon-minus" (click)="onDeteleItemCtrl('sizeList', j)"></button>
+        <div class="form-input" *ngFor="let sizeControl of sizeControls; index as k">
+            <input type="text" class="form-control" [formControlName]="k" >
+            <button class="btn glyphicon glyphicon-minus" (click)="onDeteleItemCtrl('sizeList', k)"></button>
         </div>
         <button class="btn glyphicon glyphicon-plus" type="button" (click)="onAddItemCtrl('sizeList')" ></button>
         <hr >
@@ -33,9 +34,9 @@
     <!-- COLOR LIST -->
     <div class="form-group"  formArrayName="colorList">
         <label >Colors:</label>
-        <div class="form-input" *ngFor="let colorControl of colorControls; index as j">
-            <input type="text" class="form-control" [formControlName]="j" >
-            <button class="btn glyphicon glyphicon-minus" (click)="onDeteleItemCtrl('colorList', j)"></button>
+        <div class="form-input" *ngFor="let colorControl of colorControls; index as l">
+            <input type="text" class="form-control" [formControlName]="l" >
+            <button class="btn glyphicon glyphicon-minus" (click)="onDeteleItemCtrl('colorList', l)"></button>
         </div>
         <button class="btn glyphicon glyphicon-plus" type="button" (click)="onAddItemCtrl('colorList')"></button>
         <hr>

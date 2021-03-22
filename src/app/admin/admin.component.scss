@@ -1,5 +1,6 @@
 $buttonColor : #93B7BE;
 $buttonHoverColor: #42e0ff;
+$buttonDeleteColor : rgba(255, 0, 0, 0.637);
 $buttonTextColor : #454545;
 @mixin buttonBorder($thickness) {
     border-left: $thickness solid  grey;
@@ -17,7 +18,7 @@ $buttonTextColor : #454545;
 
 
 .f-container{
-    border: solid  green; 
+    // border: solid  green; 
     width: 100%;
     max-width: 1600px;
     padding: 0;
@@ -43,7 +44,7 @@ $buttonTextColor : #454545;
 
 
 form {
-    border: solid blue;
+    // border: solid blue;
     width: 50%;
     padding: 0;
     display: flex;
@@ -55,13 +56,17 @@ form {
     padding: 10px;
 
     .form-group{
-        border: solid red;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
+        // border: solid red;
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: space-between;
+        // align-items: flex-start;
         width: 100%;
         }
+
+    .form-input{
+        display: flex;
+    }
 
 
     input{
@@ -94,6 +99,20 @@ form {
             visibility: visible;
         }
     }
+
+    .glyphicon-plus{
+        background-color: $buttonColor;
+        &:hover{
+            background-color: #759399;
+        }
+    }
+    
+    .glyphicon-minus{
+        background-color: $buttonDeleteColor;
+        &:hover{
+            background-color: red;
+        }
+    } 
 
 }
 

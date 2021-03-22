@@ -20,7 +20,8 @@ export class AdminComponent implements OnInit, OnDestroy, CanComponentDeactivate
   private subscription: Subscription;
   newItemAdminForm: FormGroup;
   changesSaved = true;
-  showItemDeatils: number;
+  showItemDetails: number;
+  isShowItemDetails = false;
   isAddNewItem = false
   indexEditItem: number;
 
@@ -71,7 +72,8 @@ export class AdminComponent implements OnInit, OnDestroy, CanComponentDeactivate
   }
 
   onShowItemDetails(index: number){
-    this.showItemDeatils = index;
+    this.isShowItemDetails = !this.isShowItemDetails;
+    this.showItemDetails = index;
   }
 
   onAddNewItemSwitch(){
@@ -112,6 +114,10 @@ export class AdminComponent implements OnInit, OnDestroy, CanComponentDeactivate
     this.indexEditItem = index;
     this.route.navigate([index], {relativeTo: this.activatedRoute});
 
+  }
+
+  onDeteleItemCtrl(listName: string, index: number){
+    (<FormArray>this.newItemAdminForm.get(listName)).controls.splice(index, 1);
   }
 
   ngOnDestroy(){
