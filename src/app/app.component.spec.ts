@@ -24,10 +24,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('handmade-shop');
   });
 
-  it('should render footer', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('footer').textContent).toContain('Footer');
-  });
+  // it('should render footer', () => {
+  //   const fixture = TestBed.createComponent(AppComponent);
+  //   fixture.detectChanges();
+  //   const compiled = fixture.nativeElement;
+  //   expect(compiled.querySelector('footer').textContent).toContain('Footer');
+  // });
 });

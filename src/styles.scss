@@ -1,19 +1,73 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { height: 100%; font-size: 16px}
 body {
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    // background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(https://www.wallpaperflare.com/static/547/958/327/abstract-graphic-design-vector-purple-wallpaper.jpg);
-    // background-repeat: no-repeat;
-    // background-attachment: fixed;
-    // background-size: cover; 
-    /* background-color: #f1fffa; */
-    // background-color: #d5c7bc;
-    background-color: #d5c7bc;
+
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.7),
+         ),
+         url(
+            https://images.unsplash.com/photo-1544195522-04e7c58ba945?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzR8fHdvb2x8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60
+
+         );
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-size:cover; 
+    background-position: center;
     
     }
 
+    @media (max-width: 900px){
+        body{
+            font-size: 13px;
+        }
+    }
+
+    @media (max-width: 600px){
+        body{
+            font-size: 11px;
+        }
+    }
+
     /* images
-    https://www.wallpapertip.com/wmimgs/21-213102_wallpapers-for-black-space-stars-background-data-solar.jpg
+
+
+    włóczki
+    https://images.unsplash.com/photo-1544195522-04e7c58ba945?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzR8fHdvb2x8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60
+
+    scarf
+    https://images.unsplash.com/photo-1535982368253-05d640fe0755?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTd8fHNjYXJmJTIwb24lMjBmYWNlfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60
+
+    white sweater
+    https://images.unsplash.com/photo-1574201635302-388dd92a4c3f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDJ8fGdyZXklMjBzd2VhdGVyfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60
+
+    warm sweater - must change to grey or blue
+            rgba(0, 37, 116, 0.651),
+        rgba(0, 15, 46, 0.842),
+    https://images.unsplash.com/photo-1581497396202-5645e76a3a8e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjZ8fHdhcm0lMjB3b29sJTIwc3dlYXRlcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60
+
+    blond face
+    https://images.unsplash.com/photo-1480607891196-1cae9c7827e1?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8OTF8fHNjYXJmJTIwc2V4eXxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=400&q=60
+
+    ----------------------------nie do udostępnienia--------------------------------
+
+    https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnJTEsBJNEt_nIi0_rjisKrJboICDIxoBfKg&usqp=CAU
+
+    scarf wind
+    https://as1.ftcdn.net/jpg/01/35/30/18/500_F_135301819_GjbXQBtJat9KXDo46oEZSXoh1Syo1KD8.jpg
+
+
+    komin cimny niebieski
+    https://mustacheshop.s3.amazonaws.com/product_images/shots/000/412/354/high_res/komin-damski-granatowy.jpg
+
+
+    włosy
+    'https://dlp2gfjvaz867.cloudfront.net/product_photos/26481084/DSCN2810_20(1)_original.jpg'
+
+    kamień
+    https://mustacheshop.s3.amazonaws.com/product_images/shots/000/183/063/high_res/szal-7c5eef.jpg
+
     */

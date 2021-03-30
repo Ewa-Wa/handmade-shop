@@ -1,95 +1,140 @@
-.flex-container.pictures{
-  /* border: solid red; */
-  display: flex;
-  justify-content: space-evenly;
-  padding:30px;
+@use '../shared/scss' as s;
 
+$animate: all 0.5s ;
+
+// ---------- CONTAINERS ----------
+.main-content {
+  position: absolute;
 }
 
-.flex-container.paragraph{
-  /* border: solid red; */
-  display: flex;
-  justify-content: space-evenly;
-  padding:30px;
+//  HIDDEN ELEMENTS 
+.logo,
+.bottom{
+  display: none;
 }
 
-div{
-  /* border: solid pink; */
-}
-
-
-
-img {
-  max-width: 300px;
-  margin: 5px;
-}
-
-p {
-  max-width: 300px;
-  margin: 10px;
-  text-align: justify;
-}
-
+// ---------- TEXT ----------
 h1{
-  display: flex;
-  justify-content: center;
+  margin: 0;
+  margin-bottom: 1%;
+  font-weight: 300;
+  font-size: 250%;
+  color: s.$textColorLight;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  word-spacing: 0.2rem;
 }
 
-@media (max-width: 900px){
-  .flex-container.pictures{
-    padding:20px;
+// ---------- BUTTONS ----------
+
+.btn {
+  display: inline-block;
+  padding: 10px 30px;
+  font-weight: 350;
+  font-size: 120%;
+  text-decoration: none;
+  border-radius: 200px;
+  transition: $animate ;
+  
+  &.btn-full {
+    background-color: s.$mainColor;
+    border: 1px solid s.$mainColor;
+    color: s.$textColorDark;
+    margin-right: 20px;
   }
   
-  .flex-container.paragraph{
-    padding:20px;
+  &.btn-ghost {
+    border: 1px solid s.$mainColor;
+    color: s.$mainColor;
   }
 
-  img {
-    max-width: 160px;
-    margin: 5px;
-  }
-  p {
-    max-width: 160px;
-  }
-
-  h1{
-    display: flex;
-    justify-content: center;
+  &:hover {
+    background-color: s.$mainColorDark;
+    border: 1px solid s.$mainColorDark;
+    color: s.$textColorLight;
   }
 }
 
-@media (max-width: 600px){
+// ---------- BIG SCREEN ONLY----------
+@media(min-width:901px) {
 
-  .flex-container.pictures{
-    justify-content: space-between;
-    padding:20px;
+  .main-content {
+    width: 800px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
-
-  .flex-container.paragraph{
-    /* border: solid red; */
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-    padding: 20px;
-  }
-
-  img {
-    max-width: 90px;
-    margin: 5px;
-  }
-  
-  h1{
-    font-size: 1.8em;
-    /* max-width: 300px; */
-    display: flex;
-    justify-content: center;
-  }
-
-  p {
-    max-width: 100%;
-  }
-  
 }
 
-/* 93B7BE  f1fffa d5c7bc  785964  454545*/
-/*4A2040  9f6ba0  C880B7  EC9DED  F5CCE8*/
+// ---------- MEDIUM SCREEN ----------
+@media (max-width: 900px) {
+
+  .main-content {
+    width: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  h1 {
+    font-size: 200%;
+  }
+
+  .btn {
+    padding: 8px 25px;
+    font-size: 120%;
+  }
+}
+
+// ---------- SMALL SCREEN ----------
+@media (max-width: 600px) {
+  
+  .main-content {
+    width: 90vw;
+    margin: 10px;
+  }
+
+  .logo {
+    display: block;
+    text-align: center;
+    margin-top: 100px;
+    text-decoration: none;
+    cursor: pointer;
+  
+    & .logo-big {
+        color: s.$textColorLight;
+        font-size: 350%;
+        margin: 0px;
+        font-weight: 300;
+    }
+
+    & .subtitle {
+        color:rgb(0, 225, 255);
+        font-weight: 300;
+        letter-spacing: 3px;
+        margin: 0px;
+    }
+  }
+
+  .btn {
+    padding: 8px 25px;
+    font-size: 120%;
+  }
+
+  h1 {
+     display: none;
+  }
+
+  .bottom {
+    display: block;
+    position: fixed;
+    bottom: 5px;
+    right: 15px;
+    font-size: 300%;
+
+    & span {
+      margin-left: 15px;
+      color: s.$textColorMedium;
+    }
+  }
+}

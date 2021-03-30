@@ -1,107 +1,123 @@
+@use '../shared/scss' as s;
 
-.header{
-    /* border: dashed; */
-    /* background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://www.wallpapertip.com/wmimgs/21-213102_wallpapers-for-black-space-stars-background-data-solar.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover; */
-    background-color:#454545;
-    padding: 0;
-    margin: 10px;
-}
+// width: 70%; magrin-left: 15%;  wyśrodkowanie 
 
+$animate: all 0.5s ease-in-out;
 
 .flex-container{
-    // border: solid  green; 
-    width: 95%;
-    max-width: 1600px;
-    padding: 0;
-    margin:0  auto;
+    // border: solid blueviolet; 
+    //max-width: 1600px;
+    padding: 0 20px;
+    //margin:0  auto; // wyśrodkowanie
     display: flex;
     justify-content: space-between;
 }
 
-
-.homeTitle{
-    /* border: solid blueviolet; */
+.logo{
+    // border: solid blueviolet; 
     text-align: center;
     margin: 1em;
     text-decoration: none;
     cursor: pointer;
-}
 
-h1{
-    color:#d5c7bc;
-    margin: 0px;
-}
-p.subtitle{
-    color:#af8091;
-    font-weight: 700;
-    letter-spacing: 3px;
-    margin: 0px;
+    h1{
+        color: s.$textColorLight;
+        margin: 0px;
+        font-weight: 300;
+    }
+    p.subtitle{
+        color:rgb(0, 225, 255);
+        font-weight: 300;
+        letter-spacing: 3px;
+        margin: 0px;
+    }
 }
 
 nav ul{
-    /* border: solid red; */
     cursor: pointer;
     padding: 0;
     display: flex;
     justify-content:center; 
     list-style:none;
-    margin: 1.5em;
-    
-    
-}
-
-nav li {
-    /* border: solid rgb(250, 106, 207); */
-    margin-left: 1em ;
-    text-align: center;
+    margin: 1.5rem;  
 }
 
 nav a{
-    /* border: solid yellow; */
+    // border: solid yellow; 
+    margin-left: 1rem ;
+    text-align: center;
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    color: #f1fffa;
-    font-size: 2em;
-    font-weight: bold;
-    padding: 0.25em 0.25em;
+    color: s.$textColorLight;
+    font-size: 150%;
+    font-weight: 300;
+    letter-spacing: 0.3rem;
+    padding: 0.1rem 0;
+    padding-left: 0.3rem;
     border-radius: 5px;
-}
+    position: relative;
+    text-transform: uppercase;
 
-nav a:hover {
-    background-color: #93B7BE9f;
-    color: #454545;
+    
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0.3rem;
+      bottom: -5px;
+      width: 0px;
+      height: 3px;
+      margin: 5px 0 0;
+      transition: $animate;
+      opacity: 0;
+      background-color: rgb(20, 203, 228);
   }
 
-.router-link-active{
-    background-color: #93B7BE9f;
-   
+  &:hover {
+      &:after {
+        width: calc(100% - 0.6rem);
+        opacity: 1;
+      }
+    }
+
+    &.router-link-active{
+        &:after {
+          width: calc(100% - 0.6rem);
+          opacity: 1;
+        }
+    }
 }
+
+@media(min-width:901px){
+    .flex-container{
+        display: flex;
+        justify-content: space-between;
+    }
+  }
 
 
 @media (max-width: 900px){
     .flex-container{
-        display: flex;
-        flex-direction: column;
+        padding: 0 5px;
     }
+
+    nav a{
+        margin-left: 0.5rem ;
+    }
+
+    
 }
 
 @media (max-width: 600px){
-    nav ul{
-        display: flex;
-        /* flex-direction: column; */
+    .flex-container{
+        // border: solid white;
+        justify-content: center;
     }
-    nav li {
-        margin: 5px;
-        text-align: center;
+    .logo {
+        display: none;
     }
-    nav a{
-        /* border: solid yellow; */
-        font-size: 1.5em;
-        font-weight: 400;
-        padding: 0.2em 0.2em;
-        border-radius: 5px;
+    .contact{
+        display: none;
     }
     
 }
